@@ -1,0 +1,15 @@
+@import url(./__input/form__input.css);
+@import url(./__input/_type/form__input_type_title.css);
+@import url(./__input/_type/form__input_type_description.css);
+@import url(./__button/form__button.css);
+@import url(./__heading/form__heading.css);
+.form {
+    background: white;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    color: black;
+    max-width: 430px;
+    min-height: 330px;
+    padding: 34px 36px 0px 36px;
+}

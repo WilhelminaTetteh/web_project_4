@@ -1,0 +1,24 @@
+.modal__button {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    margin-left: 500px;
+    cursor: pointer;
+}
+.modal__button:hover {
+    opacity: 0.6;
+}
+@media screen and (max-width: 958px) {
+    .modal__button {
+        margin-left: 90%;
+    }
+}
+@media screen and (max-width: 425px){
+    .modal__button {
+        margin-left: 86%;
+        width: 26px;
+        height: 26px;
+   }
+}

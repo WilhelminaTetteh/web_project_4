@@ -1,0 +1,11 @@
+.profile__edit {
+    background-color: #2a2c2f;
+    border: 1px solid #fff;
+    height: 24px;
+    width: 24px;
+    margin-left: 18px;
+    padding: 0;
+}
+.profile__edit:hover {
+    opacity: 0.6;
+}
