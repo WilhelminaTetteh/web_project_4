@@ -10,6 +10,12 @@
     font-family: "Inter", Arial, Helvetica, sans-serif;
     color: black;
     max-width: 430px;
-    min-height: 330px;
-    padding: 34px 36px 0px 36px;
+    /* min-height: 330px; */
+    padding: 34px 36px 36px 36px;
+}
+
+@media screen and (max-width: 425px){
+    .form {
+        padding: 22px 22px 25px 22px;
+   }
 }
