@@ -1,5 +1,7 @@
 .profile__title-container {
-    margin-bottom: 16px;
+    margin-bottom: 11px;
     display: flex;
     align-items: center;
+    /* display: grid; */
+    /* grid-template-columns: 1fr auto; */
 }

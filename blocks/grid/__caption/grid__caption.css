@@ -1,6 +1,14 @@
 .grid__caption {
     display: flex;
+    width: 246px;
     align-items: flex-end;
     justify-content: space-between;
-    margin: 25px 15px 31px 21px;
+    margin: 20px 15px 0 21px;
+
 }
+/* .grid__caption {
+    display: flex;
+    align-items: flex-end;
+    /* justify-content: space-between; */
+    margin: 25px 15px 31px 21px;
+} */

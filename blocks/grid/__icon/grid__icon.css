@@ -2,6 +2,7 @@
     padding: 0;
     background: #fff;
     border: none;
+    margin-right: 1.13px;
 }
 .grid__icon:hover {
     opacity: 0.5;

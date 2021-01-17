@@ -1,5 +1,6 @@
 .grid__item {
     max-width: 282px;
+    min-height: 361px;
     background: #fff;
     border-radius: 10px;
 }

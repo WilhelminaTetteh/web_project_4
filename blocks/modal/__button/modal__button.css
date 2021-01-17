@@ -4,21 +4,31 @@
     padding: 0;
     background: transparent;
     border: none;
-    margin-left: 500px;
     cursor: pointer;
+    position: absolute;
+    margin-left: 430px;
+    margin-top: -40px;
 }
+
 .modal__button:hover {
     opacity: 0.6;
 }
 @media screen and (max-width: 958px) {
-    .modal__button {
+    .modal__button{
+        margin-left: 420px;
+    }
+}
+@media screen and (max-width: 958px) {
+    .modal__button{
         margin-left: 90%;
     }
 }
 @media screen and (max-width: 425px){
-    .modal__button {
-        margin-left: 86%;
-        width: 26px;
-        height: 26px;
-   }
+
+.modal__button {
+    width: 26px;
+    height: 26px;
+    margin-left: 90%;
+    margin-bottom: 13.62px;
+}
 }

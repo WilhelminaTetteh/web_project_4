@@ -4,90 +4,105 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="pages/index.css">
-    <title>Around The U.S.</title>
-  </head>
-  <body class="page">
-    <div class="page__container">
-      <header class="header">
-        <img class="logo" src="images/logo.svg" alt="logo" />
-      </header>
-      <main class="main">
-        <section class="profile">
-          <img src="./images/jaques.jpg" alt="image of a man with a red beanie" class="profile__image"/>
-          <div class="profile__info">
-            <div class="profile__title-container">
-              <h1 class="profile__title">Jacques Cousteau</h1>
-              <button class="profile__edit"><img class="profile__edit-icon" src="./images/pencil.svg" alt="pencil icon"/></button>
+      <title>Around The U.S.</title>
+    </head>
+    <body class="page">
+      <div class="page__container">
+        <header class="header">
+          <img class="logo" src="images/logo.svg" alt="logo" />
+        </header>
+        <main class="main">
+          <section class="profile">
+            <img src="./images/jaques.jpg" alt="image of a man with a red beanie" class="profile__image"/>
+            <div class="profile__info">
+              <div class="profile__title-container">
+                <h1 class="profile__title">Jacques Cousteau</h1>
+                <button class="profile__edit">
+                  <img class="profile__edit-icon" src="./images/pencil.svg" alt="pencil icon"/>
+                </button>
+              </div>
+              <p class="profile__description">Explorer</p>
             </div>
-            <p class="profile__description">Explorer</p>
-          </div>
-          <button class="profile__add">
-          <img src="./images/add.svg" alt="plus sign"/>
-          </button>
-        </section>
-        <section class="grid">
-          <ul class="grid__container">
-            <li class="grid__item">
-              <img src="./images/Yosemite Valley.jpg" alt="Yosemite Valley" class="grid__image"/>
-              <div class="grid__caption">
-                <p class="grid__text">Yosemite Valley</p>
-                <button class="grid__icon"><img src="./images/heart.svg" alt="heart"/></button>
-              </div>
-            </li>
-            <li class="grid__item">
-              <img src="./images/lake louise.jpg" alt="lake louise" class="grid__image"/>
-              <div class="grid__caption">
-                <p class="grid__text">Lake Louise</p>
-                <button class="grid__icon"><img src="./images/heart.svg" alt="heart"/></button>
-              </div>
-            </li>
-            <li class="grid__item">
-              <img src="./images/bald mountains.jpg" alt="Bald Mountains" class="grid__image"/>
-              <div class="grid__caption">
-                <p class="grid__text">Bald Mountains</p>
-                <button class="grid__icon"><img src="./images/heart.svg" alt="heart"/></button>
-              </div>
-            </li>
-            <li class="grid__item">
-              <img src="./images/Latemar.jpg" alt="Latemar" class="grid__image"/>
-              <div class="grid__caption">
-                <p class="grid__text">Latemar</p>
-                <button class="grid__icon"><img src="./images/heart.svg" alt="heart"/></button>
-              </div>
-            </li>
-            <li class="grid__item">
-              <img src="./images/Vanoise National.jpg" alt="Vanoise Nationaal park" class="grid__image"/>
-              <div class="grid__caption">
-                <p class="grid__text">Vanoise National Park</p>
-                <button class="grid__icon"><img src="./images/heart.svg" alt="heart"/></button>
-              </div>
-            </li>
-            <li class="grid__item">
-              <img src="./images/Lago di Braies.jpg" alt="boats on a river surrounded by mountains" class="grid__image"/>
-              <div class="grid__caption">
-                <p class="grid__text">Lago di Braies</p>
-                <button class="grid__icon"><img src="./images/heart.svg" alt="heart"/></button>
-              </div>
-            </li>
-          </ul>
-        </section>
-      </main>
-      <footer class="footer">
-        <p class="footer__copyright">© 2020 Around The U.S.</p>
-      </footer>
-    </div>
-    <div class="modal">
-      <div class="modal__container">
-        <button class="modal__button"><img class="modal__close-icon" src="./images/Close Icon.svg" alt="Close Icon" /></button>
-        <form action="#" class="form">
-          <h2 class="form__heading">Edit profile</h2>
-          <input type="text" placeholder="Name" class="form__input form__input_type_title" name="title" value="Jacques Cousteau" />
-          <input type="text" placeholder="About me" class="form__input form__input_type_description" name="description" value="Explorer" />
-          <br />
-          <button class="form__button" type="submit">save</button>
-        </form>
+            <button class="profile__add">
+              <img src="./images/add.svg" alt="plus sign"/>
+            </button>
+          </section>
+          <section class="grid">
+            <ul class="grid__container">
+              <li class="grid__item">
+                <img src="./images/Yosemite Valley.jpg" alt="Yosemite Valley" class="grid__image"/>
+                <div class="grid__caption">
+                  <p class="grid__text">Yosemite Valley</p>
+                  <button class="grid__icon">
+                    <img src="./images/heart.svg" alt="heart"/>
+                  </button>
+                </div>
+              </li>
+              <li class="grid__item">
+                <img src="./images/lake louise.jpg" alt="lake louise" class="grid__image"/>
+                <div class="grid__caption">
+                  <p class="grid__text">Lake Louise</p>
+                  <button class="grid__icon">
+                    <img src="./images/heart.svg" alt="heart"/>
+                  </button>
+                </div>
+              </li>
+              <li class="grid__item">
+                <img src="./images/bald mountains.jpg" alt="Bald Mountains" class="grid__image"/>
+                <div class="grid__caption">
+                  <p class="grid__text">Bald Mountains</p>
+                  <button class="grid__icon">
+                    <img src="./images/heart.svg" alt="heart"/>
+                  </button>
+                </div>
+              </li>
+              <li class="grid__item">
+                <img src="./images/Latemar.jpg" alt="Latemar" class="grid__image"/>
+                <div class="grid__caption">
+                  <p class="grid__text">Latemar</p>
+                  <button class="grid__icon">
+                    <img src="./images/heart.svg" alt="heart"/>
+                  </button>
+                </div>
+              </li>
+              <li class="grid__item">
+                <img src="./images/Vanoise National.jpg" alt="Vanoise Nationaal park" class="grid__image"/>
+                <div class="grid__caption">
+                  <p class="grid__text">Vanoise National Park</p>
+                  <button class="grid__icon">
+                    <img src="./images/heart.svg" alt="heart"/>
+                  </button>
+                </div>
+              </li>
+              <li class="grid__item">
+                <img src="./images/Lago di Braies.jpg" alt="boats on a river surrounded by mountains" class="grid__image"/>
+                <div class="grid__caption">
+                  <p class="grid__text">Lago di Braies</p>
+                  <button class="grid__icon">
+                    <img src="./images/heart.svg" alt="heart"/>
+                  </button>
+                </div>
+              </li>
+            </ul>
+          </section>
+        </main>
+        <footer class="footer">
+          <p class="footer__copyright">© 2020 Around The U.S.</p>
+        </footer>
       </div>
-    </div>
-    <script src="index.js"></script>
-  </body>
-</html>
+      <div class="modal">
+        <div class="modal__container">
+          <button class="modal__button">
+            <img class="modal__button-icon" src="./images/Close Icon.svg" alt="Close Icon"/>
+          </button>
+          <form action="#" class="form">
+            <h2 class="form__heading">Edit profile</h2>
+            <input type="text" placeholder="Name" class="form__input form__input_type_title" name="title" value="Jacques Cousteau"/>
+            <input type="text" placeholder="About me" class="form__input form__input_type_description" name="description" value="Explorer"/>
+            <button class="form__button" type="submit">save</button>
+          </form>
+        </div>
+      </div>
+      <script src="./scripts/script.js"></script>
+    </body>
+  </html>

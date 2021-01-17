@@ -1,8 +1,6 @@
 .form__button {
-    width: 100%;
+    width: 358px;
     height: 50.15px;
-    left: 461px;
-    top: 438.34px;
     background: #000000;
     border-radius: 2px;
     border: none;
@@ -13,7 +11,21 @@
     font-size: 18px;
     line-height: 22px;
     text-align: center;
+    margin-left: 36px;
+    margin-bottom: 36px;
 }
+
 .form__button:hover {
     opacity: 0.8;
+}
+@media screen and (max-width: 958px) {
+    .form__button{
+     width: 82%;
+    }
+}
+@media screen and (max-width: 425px){
+    .form__button{
+        width: 238px;
+        margin-left: 22px;
+       }
 }

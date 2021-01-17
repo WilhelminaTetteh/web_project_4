@@ -1,16 +1,13 @@
 let editButton = document.querySelector(".profile__edit");
 let closeButton = document.querySelector(".modal__button");
 let form = document.querySelector(".form");
+let titleInput = document.querySelector(".form__input_type_title");
+let descriptionInput = document.querySelector(".form__input_type_description");
+let profileTitle = document.querySelector(".profile__title");
+let profileDescription = document.querySelector(".profile__description");
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
-
-    let titleInput = document.querySelector(".form__input_type_title");
-    let descriptionInput = document.querySelector(".form__input_type_description");
-
-    let profileTitle = document.querySelector(".profile__title");
-    let profileDescription = document.querySelector(".profile__description");
-
     profileTitle.textContent = titleInput.value;
     profileDescription.textContent = descriptionInput.value;
 

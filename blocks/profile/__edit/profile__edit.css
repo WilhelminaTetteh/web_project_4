@@ -1,9 +1,10 @@
 .profile__edit {
-    background-color: #2a2c2f;
+    background-color: #000;
     border: 1px solid #fff;
     height: 24px;
     width: 24px;
     margin-left: 18px;
+    margin-top: 2%;
     padding: 0;
 }
 .profile__edit:hover {
