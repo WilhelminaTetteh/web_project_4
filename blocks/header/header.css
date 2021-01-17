@@ -6,32 +6,12 @@
     border-bottom: 1px solid #545454;
 }
 
-
-
 @media screen and (max-width: 425px) {
     .header {
         max-width: 100%;
         border-bottom: 1px solid #545454;
-        /* min-height: 74px; */
         margin: 0 auto;
         padding: 28px 0 32px 0;
     }
 }
-/*
- .header {
-    max-width: 68.75%;
-    border-bottom: 1px solid #545454;
-    margin: 0 auto;
-    padding: 40px 0 41px 0;
-}
-
-
-@media screen and (max-width: 425px) {
-    .header {
-        max-width: 100%;
-        border-bottom: 1px solid #545454;
-        /* min-height: 74px; */
-        margin: 0 auto;
-        padding: 28px 0 32px 0;
-    }
-} */ 
+ 
