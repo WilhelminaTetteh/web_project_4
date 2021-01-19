@@ -4,7 +4,7 @@
     width: 150px;
     height: 50px;
     cursor: pointer;
-    transition: 2s ease-out;
+    transition: 1s ease-out;
 }
 .profile__add:hover {
     opacity: 0.6;

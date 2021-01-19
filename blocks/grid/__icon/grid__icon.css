@@ -8,7 +8,8 @@
     width: 22px;
     border: none;
     margin-right: 1.13px;
-    
+    cursor: pointer;
+    transition: 0.5s ease-out;
 }
 .grid__icon:hover {
     opacity: 0.5;

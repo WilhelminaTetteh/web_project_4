@@ -1,36 +1,16 @@
-/* .form__heading {
-   
-}
-
-@media screen and (max-width: 958px) {
-    .form__heading {
-       
-    }
-}
-@media screen and (max-width: 425px) {
-    .form__heading {
-        
-    }
-} */
 .form__heading {
     font-family: "Inter", Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: 900;
     font-size: 24px;
     line-height: 29px;
-    margin: 0 0 54px 36px;
-    padding-top: 34px;
+    margin: 0 0 51px 0;
 }
 
-@media screen and (max-width: 958px) {
-    .form__heading {
-        margin: 0 0 75px 36px;
-    }
-}
 @media screen and (max-width: 425px) {
     .form__heading {
         font-size: 18px;
         line-height: 22px;
-        margin: 0 0 75px 22px;
+        margin: 0 0 75px 0;
     }
-}
+} 

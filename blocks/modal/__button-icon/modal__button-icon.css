@@ -1,0 +1,7 @@
+
+@media screen and (max-width: 425px){
+    .modal__button-icon{
+        width: 21px;
+        height: 21px;
+    }
+}

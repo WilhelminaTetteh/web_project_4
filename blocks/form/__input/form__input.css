@@ -1,5 +1,5 @@
-/* .form__input {
- width: 358px;
+.form__input {
+ width: 100%;
  border: 0;
  font-size: 14px;
  font-weight: 400;
@@ -7,40 +7,12 @@
  box-sizing: border-box;
  border-bottom: 1px solid #bcbcc4;
  background-color: transparent;
- width: 358px;
  height: 24px;
+ padding-bottom: 13.26px;
 }
-@media screen and (max-width: 958px) {
-    .form__input{
-   
-    }
-}
+
 @media screen and (max-width: 425px){
     .form__input{
-        ;
-       }
-} */
-.form__input {
-    border: 0;
-    font-size: 14px;
-    font-weight: 400;
-    font-family: "Inter", Arial, Helvetica, sans-serif;
-    box-sizing: border-box;
-    border-bottom: 1px solid #bcbcc4;
-    background-color: transparent;
-    width: 358px;
-    height: 24px;
-    margin-left: 36px;
-    padding-bottom: 13.26px;
-}
-@media screen and (max-width: 958px) {
-    .form__input{
-     width: 82%;
-    }
-}
-@media screen and (max-width: 425px){
-    .form__input{
-        width: 238px;
-        margin-left: 22px;
+        padding-bottom: 13px;
        }
 }
