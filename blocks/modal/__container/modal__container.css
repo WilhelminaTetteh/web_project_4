@@ -1,3 +1,20 @@
+/* .modal__container{
+    box-sizing: border-box;
+    position: relative;
+    background-color: #fff;
+}
+
+@media screen and (max-width: 958px) {
+    .modal__container {
+        
+   }
+}
+@media screen and (max-width: 425px){
+    .modal__container {
+        
+   }
+}  */
+
 .modal__container{
     box-sizing: border-box;
     position: relative;

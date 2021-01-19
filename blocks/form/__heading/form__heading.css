@@ -1,3 +1,17 @@
+/* .form__heading {
+   
+}
+
+@media screen and (max-width: 958px) {
+    .form__heading {
+       
+    }
+}
+@media screen and (max-width: 425px) {
+    .form__heading {
+        
+    }
+} */
 .form__heading {
     font-family: "Inter", Arial, Helvetica, sans-serif;
     font-style: normal;

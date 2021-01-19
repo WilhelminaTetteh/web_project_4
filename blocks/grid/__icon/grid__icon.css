@@ -1,8 +1,14 @@
 .grid__icon {
-    padding: 0;
-    background: #fff;
+    background-color: #fff;
+    background-image: url(../../../images/heart.svg);
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 22px;
     border: none;
     margin-right: 1.13px;
+    
 }
 .grid__icon:hover {
     opacity: 0.5;

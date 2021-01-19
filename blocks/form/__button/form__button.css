@@ -1,3 +1,20 @@
+/* .form__button {
+ 
+}
+
+.form__button:hover {
+    opacity: 0.8;
+}
+@media screen and (max-width: 958px) {
+    .form__button{
+    
+    }
+}
+@media screen and (max-width: 425px){
+    .form__button{
+       
+       }
+} */
 .form__button {
     width: 358px;
     height: 50.15px;
@@ -10,7 +27,6 @@
     font-weight: normal;
     font-size: 18px;
     line-height: 22px;
-    text-align: center;
     margin-left: 36px;
     margin-bottom: 36px;
 }

@@ -3,8 +3,10 @@
 @import url(./__title-container/profile__title-container.css);
 @import url(./__title/profile__title.css);
 @import url(./__edit/profile__edit.css);
+@import url(./__edit-icon/profile__edit-icon.css);
 @import url(./__description/profile__description.css);
 @import url(./__add/profile__add.css);
+@import url(./__add-icon/profile__add-icon.css);
 .profile {
     max-width: 68.75%;
     margin: 0 auto;
@@ -12,26 +14,15 @@
     align-items: center;
     justify-content: center;
     padding-top: 40px;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 }
-@media screen and (max-width: 1150px){
-    .profile {
-        justify-content: center;
-    }
-}
+
 @media screen and (max-width: 958px) {
     .profile {
         max-width: 100%;
         flex-direction: column;
-        padding: 40px 0 51px 0;
+        padding: 42px 0 0 0;
+        /* padding: 0; */
     }
  
-}
-@media screen and (max-width: 425px) {
-   
-    .profile {
-        max-width: 100%;
-        flex-direction: column;
-        padding: 40px 0 51px 0;
-    }
 }
