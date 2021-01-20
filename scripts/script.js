@@ -7,23 +7,27 @@ let descriptionInput = document.querySelector(".form__input_type_description");
 let profileTitle = document.querySelector(".profile__title");
 let profileDescription = document.querySelector(".profile__description");
 
-// open modal on click event
-editButton.addEventListener("click", function () {
+
+function modalOpen(){
     modal.classList.add("modal_open");
-});
+}
+editButton.addEventListener("click",modalOpen);
 
-// close modal on click event
 
-closeButton.addEventListener("click", function () {
+function modalClose(){
     modal.classList.remove("modal_open");
-});
+}
+closeButton.addEventListener("click",modalClose);
 
-// replace info on submit event and close
 
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
+
+function formSubmit (event) {
+        event.preventDefault(); 
+
     profileTitle.textContent = titleInput.value;
     profileDescription.textContent = descriptionInput.value;
 
-    modal.classList.remove("modal_open");
-});
+    modalClose()
+}
+form.addEventListener('submit', formSubmit);
+
