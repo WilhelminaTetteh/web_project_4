@@ -1,18 +1,18 @@
 .form__input {
- width: 100%;
- border: 0;
- font-size: 14px;
- font-weight: 400;
- font-family: "Inter", Arial, Helvetica, sans-serif;
- box-sizing: border-box;
- border-bottom: 1px solid rgba(0, 0, 0, 0.2);;
- background-color: transparent;
- height: 24px;
- padding-bottom: 13.26px;
+    width: 100%;
+    border: 0;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: transparent;
+    height: 24px;
+    padding-bottom: 13.26px;
 }
 
-@media screen and (max-width: 425px){
-    .form__input{
+@media screen and (max-width: 425px) {
+    .form__input {
         padding-bottom: 13px;
-       }
+    }
 }
