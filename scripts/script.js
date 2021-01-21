@@ -7,27 +7,24 @@ let descriptionInput = document.querySelector(".form__input_type_description");
 let profileTitle = document.querySelector(".profile__title");
 let profileDescription = document.querySelector(".profile__description");
 
-
-function modalOpen(){
+function openModal() {
     modal.classList.add("modal_open");
+
+    titleInput.value = profileTitle.textContent;
+    descriptionInput.value = profileDescription.textContent;
 }
-editButton.addEventListener("click",modalOpen);
+editButton.addEventListener("click", openModal);
 
-
-function modalClose(){
+function closeModal() {
     modal.classList.remove("modal_open");
 }
-closeButton.addEventListener("click",modalClose);
+closeButton.addEventListener("click", closeModal);
 
-
-
-function formSubmit (event) {
-        event.preventDefault(); 
-
+function submitForm(event) {
+    event.preventDefault();
     profileTitle.textContent = titleInput.value;
     profileDescription.textContent = descriptionInput.value;
 
-    modalClose()
+    closeModal();
 }
-form.addEventListener('submit', formSubmit);
-
+form.addEventListener("submit", submitForm);
