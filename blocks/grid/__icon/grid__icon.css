@@ -3,13 +3,13 @@
     background-image: url(../../../images/heart.svg);
     height: 100%;
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+    background-position: top;
     width: 22px;
     border: none;
-    margin-right: 1.13px;
+    margin-right: 2.13px;
     cursor: pointer;
     transition: 0.5s ease-out;
+    background-size: 20.76px 18.13px;
 }
 .grid__icon:hover {
     opacity: 0.5;
