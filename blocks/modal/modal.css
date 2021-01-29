@@ -1,6 +1,15 @@
 @import url(./__button/modal__button.css);
+@import url(./__button/_type/modal__button_type_popup-image.css);
 @import url(./__container/modal__container.css);
+@import url(./__container/_type/modal__container_type_image.css);
 @import url(./__button-icon/modal__button-icon.css);
+@import url(./__figure/modal__figure.css);
+@import url(./__image/modal__image.css);
+@import url(./__image-caption/modal__image-caption.css);
+@import url(./_type/modal_type_edit-profile.css);
+@import url(./_type/modal_type_add-card.css);
+@import url(./_type/modal_type_image.css);
+@import url(./__add-button/modal__add-button.css);
 .modal {
     background: #0000007d;
     display: none;

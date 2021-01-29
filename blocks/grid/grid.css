@@ -2,5 +2,7 @@
 @import url(./__item/grid__item.css);
 @import url(./__text/grid__text.css);
 @import url(./__icon/grid__icon.css);
+@import url(./__icon/_active/grid__icon_active.css);
 @import url(./__caption/grid__caption.css);
 @import url(./__image/grid__image.css);
+@import url(./__delete-icon/grid__delete-icon.css);

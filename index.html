@@ -29,54 +29,7 @@
             </section>
             <section class="grid">
                <ul class="grid__container">
-                  <li class="grid__item" style="background-image: url('./images/YosemiteValley.jpg');
-                  background-repeat: no-repeat;">
-                     <div class="grid__caption">
-                        <p class="grid__text">Yosemite Valley</p>
-                        <button class="grid__icon" aria-label="grid icon" type="button">
-                        </button>
-                     </div>
-                  </li>
-                  <li class="grid__item" style="background-image: url('./images/lakelouise.jpg');
-                  background-repeat: no-repeat;">
-                     <div class="grid__caption">
-                        <p class="grid__text">Lake Louise</p>
-                        <button class="grid__icon" aria-label="grid icon" type="button">
-                        </button>
-                     </div>
-                  </li>
-                  <li class="grid__item" style="background-image: url('./images/baldmountains.jpg');
-                  background-repeat: no-repeat;">
-                     <div class="grid__caption">
-                        <p class="grid__text">Bald Mountains</p>
-                        <button class="grid__icon" aria-label="grid icon" type="button">
-                        </button>
-                     </div>
-                  </li>
-                  <li class="grid__item" style="background-image: url('./images/Latemar.jpg');
-                  background-repeat: no-repeat;">
-                     <div class="grid__caption">
-                        <p class="grid__text">Latemar</p>
-                        <button class="grid__icon" aria-label="grid icon" type="button">
-                        </button>
-                     </div>
-                  </li>
-                  <li class="grid__item" style="background-image: url('./images/VanoiseNational.jpg');
-                  background-repeat: no-repeat;">
-                     <div class="grid__caption">
-                        <p class="grid__text">Vanoise National Park</p>
-                        <button class="grid__icon" aria-label="grid icon" type="button">
-                        </button>
-                     </div>
-                  </li>
-                  <li class="grid__item" style="background-image: url('./images/LagodiBraies.jpg');
-                  background-repeat: no-repeat;">
-                     <div class="grid__caption">
-                        <p class="grid__text">Lago di Braies</p>
-                        <button class="grid__icon" aria-label="grid icon" type="button">
-                        </button>
-                     </div>
-                  </li>
+                  
                </ul>
             </section>
          </main>
@@ -84,7 +37,7 @@
             <p class="footer__copyright">© 2020 Around The U.S.</p>
          </footer>
       </div>
-      <div class="modal">
+      <div class="modal modal_type_edit-profile">
          <div class="modal__container">
             <button class="modal__button" type="button" aria-label="modal button">
             <img class="modal__button-icon" src="./images/CloseIcon.svg" alt="Close Icon"/>
@@ -97,6 +50,45 @@
             </form>
          </div>
       </div>
+      <!-- new modal -->
+      <div class="modal modal_type_add-card">
+         <div class="modal__container">
+            <button class="modal__button modal__add-button" type="button" aria-label="modal button">
+            <img class="modal__button-icon" src="./images/CloseIcon.svg" alt="Close Icon"/>
+            </button>
+            <form action="#" class="form" method="POST" name="form">
+               <h2 class="form__heading">New place</h2>
+               <input type="text" placeholder="Title" class="form__input form__input_type_card-title" name="title"/>
+               <input type="url" placeholder="Image link" class="form__input form__input_type_url" name="description"/>
+               <button class="form__button" type="submit">Create</button>
+            </form>
+         </div>
+      </div>
+      
+      <!-- image modal -->
+      <div class="modal modal_type_image">
+         <!-- <div class="modal__container modal__container_type_image"> -->
+            <button class="modal__button modal__button_type_popup-image" type="button" aria-label="modal button">
+            <img class="modal__button-icon" src="./images/CloseIcon.svg" alt="Close Icon"/>
+            </button>
+         <figure class="modal__figure">
+            <img class="modal__image" src="" alt="">
+            <figcaption class="modal__image-caption"></figcaption>
+         </figure>
+         <!-- </div> -->
+      </div>
+      <template class="grid__template">
+         <li class="grid__item">
+         <button type="button" aria-label="modal button" class="grid__delete-icon"></button>
+         <div class="grid__image" style="">
+         </div>
+            <div class="grid__caption">
+               <p class="grid__text"></p>
+               <button class="grid__icon" aria-label="grid icon" type="button"> </button>
+            </div>
+         </li>
+         </template>
+
       <script src="./scripts/script.js"></script>
    </body>
 </html>
