@@ -139,7 +139,7 @@ function addCard(event) {
   const cardLikeIcon = cardElement.querySelector(".grid__icon");
   const cardDeleteIcon = cardElement.querySelector(".grid__delete-icon");
   //adding data to the card *3*
-  cardImage.style.backgroundImage = imageInput.value;
+  cardImage.style.backgroundImage = `url(${imageInput.value})`;
   cardText.textContent = nameInput.value;
    //changeLikeState()
   cardLikeIcon.addEventListener("click", () => {
