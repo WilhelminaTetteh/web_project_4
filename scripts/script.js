@@ -138,6 +138,9 @@ function addCard(event) {
   const cardText = cardElement.querySelector(".grid__text");
   const cardLikeIcon = cardElement.querySelector(".grid__icon");
   const cardDeleteIcon = cardElement.querySelector(".grid__delete-icon");
+
+  
+
   //adding data to the card *3*
   cardImage.style.backgroundImage = `url(${imageInput.value})`;
   cardText.textContent = nameInput.value;
@@ -155,9 +158,8 @@ function addCard(event) {
   cardImage.addEventListener("click", () => {
       const popupImage = imageModal.querySelector(".modal__image"); 
       const imageCaption = imageModal.querySelector(".modal__image-caption");
-
-      popupImage.src = imageInput.value;
-      imageCaption.textContent = nameInput.value;
+      popupImage.src = cardImage.style.backgroundImage;
+      imageCaption.textContent = cardText.textContent;
       toggleModalWindow(imageModal); 
       
   });
@@ -176,6 +178,96 @@ function addCard(event) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
 
 

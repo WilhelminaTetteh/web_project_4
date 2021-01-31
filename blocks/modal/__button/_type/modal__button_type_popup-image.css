@@ -3,6 +3,13 @@
     margin-top: -600px;
 }
 
+@media screen and (max-width: 580px){
+
+    .modal__button_type_popup-image {
+        margin-left: 374px;
+        margin-top: -500px;
+    }
+}
 @media screen and (max-width: 425px){
 
     .modal__button_type_popup-image {
