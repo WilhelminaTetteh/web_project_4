@@ -2,6 +2,7 @@
     width: 433px;
     height: 540px;
     object-fit: cover;
+    /* background-color: red; */
 }
 
 @media screen and (max-width: 580px){

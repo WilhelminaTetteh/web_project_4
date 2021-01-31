@@ -114,7 +114,7 @@ const initialCards = [
     });
     // imageModal
     cardImage.addEventListener("click", () => {
-        popupImage.src = data.link;
+        popupImage.style.backgroundImage = `url(${data.link})`;
         imageCaption.textContent = data.name;
         toggleModalWindow(imageModal); 
     });
@@ -158,7 +158,7 @@ function addCard(event) {
   cardImage.addEventListener("click", () => {
       const popupImage = imageModal.querySelector(".modal__image"); 
       const imageCaption = imageModal.querySelector(".modal__image-caption");
-      popupImage.src = cardImage.style.backgroundImage;
+      popupImage.style.backgroundImage = cardImage.style.backgroundImage;
       imageCaption.textContent = cardText.textContent;
       toggleModalWindow(imageModal); 
       
