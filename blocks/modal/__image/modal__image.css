@@ -1,5 +1,12 @@
 .modal__image{
     width: 433px;
     height: 540px;
-    object-fit: fill;
+    object-fit: cover;
 }
+
+@media screen and (max-width: 425px){
+    .modal__image {
+    width: 240px;
+    height: 299px;
+   }
+} 

@@ -2,3 +2,12 @@
     margin-left: 473px;
     margin-top: -600px;
 }
+
+@media screen and (max-width: 425px){
+
+    .modal__button_type_popup-image {
+        margin-left: 270px;
+        margin-top: -343px;
+    
+    }
+}
