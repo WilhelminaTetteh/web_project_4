@@ -41,8 +41,8 @@
           </button>
           <form action="#" class="form" method="POST" name="form">
             <h2 class="form__heading">Edit profile</h2>
-            <input type="text" placeholder="Name" class="form__input form__input_type_title" name="title">
-            <input type="text" placeholder="About me" class="form__input form__input_type_description" name="description">
+            <input type="text" placeholder="Name" class="form__input form__input_type_title" name="title" required>
+            <input type="text" placeholder="About me" class="form__input form__input_type_description" name="description" required> 
             <button class="form__button" type="submit">Save</button>
           </form>
         </div>
@@ -56,7 +56,7 @@
           <form action="#" class="form form_type_card" method="POST" name="form">
             <h2 class="form__heading">New place</h2>
             <input type="text" placeholder="Title" class="form__input form__input_type_card-title" name="title">
-            <input type="url" placeholder="Image link" class="form__input form__input_type_url" name="description">
+            <input type="url" placeholder="Image link" class="form__input form__input_type_url" name="description" required>
             <button class="form__button" type="submit">Create</button>
           </form>
         </div>
