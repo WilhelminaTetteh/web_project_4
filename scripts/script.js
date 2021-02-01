@@ -26,6 +26,7 @@ let imageInput = document.querySelector(".form__input_type_url");
 let popupImage = imageModal.querySelector(".modal__image"); 
 let imageCaption = imageModal.querySelector(".modal__image-caption"); 
 
+
 function toggleModalWindow(modal) {
     modal.classList.toggle("modal_open");
 }

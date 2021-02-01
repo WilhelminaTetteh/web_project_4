@@ -1,23 +1,18 @@
 .modal_open {
     display: flex;
-    
+    animation: fadeIn 2s;
 }
-
-
-
-
-
-
-/* .modal_open {
-    display: flex;
-     animation: fadeIn 2s; 
-}
-
 @keyframes fadeIn {
-    from{
+    from {
         opacity: 0;
     }
-    to{
+    to {
         opacity: 1;
     }
-} */
+}   
+
+
+
+
+
+

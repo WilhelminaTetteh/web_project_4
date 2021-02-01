@@ -2,9 +2,6 @@
     width: 433px;
     height: 540px;
     object-fit: cover;
-    /* background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat; */
 }
 
 @media screen and (max-width: 580px){
