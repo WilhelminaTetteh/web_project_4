@@ -118,6 +118,7 @@ function createCardElement(name, link){
     
     cardImage.addEventListener("click", () => {
         popupImage.src = link;
+        popupImage.alt = name;
         imageCaption.textContent = name;
         toggleModalWindow(imageModal);
     });
