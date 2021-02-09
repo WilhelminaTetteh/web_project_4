@@ -3,6 +3,8 @@
 @import url(./__input/_type/form__input_type_description.css);
 @import url(./__input/_type/form__input_type_card-title.css);
 @import url(./__input/_type/form__input_type_url.css);
+@import url(./__input/_type/form__input_type_error.css);
+@import url(./__error/form__error.css);
 @import url(./__button/form__button.css);
 @import url(./__heading/form__heading.css);
 

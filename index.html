@@ -39,10 +39,19 @@
           <button class="modal__button" type="button" aria-label="modal button">
             <img class="modal__button-icon" src="./images/CloseIcon.svg" alt="Close Icon">
           </button>
-          <form action="#" class="form" method="POST" name="form">
+          <form action="#" class="form" method="POST" name="form" novalidate>
             <h2 class="form__heading">Edit profile</h2>
-            <input type="text" placeholder="Name" class="form__input form__input_type_title" name="title" required>
-            <input type="text" placeholder="About me" class="form__input form__input_type_description" name="description" required> 
+
+            <label for="#">
+            <input id="profile-name" type="text" placeholder="Name" class="form__input form__input_type_title" name="title" required maxlength="40" minlength="2">
+            <span id="profile-name-error" class="form__error"></span>
+            </label>
+
+            <label for="#">
+            <input id="profile-text" type="text" placeholder="About me" class="form__input form__input_type_description" name="description" required maxlength="200" minlength="2"> 
+            <span id="profile-text-error" class="form__error"></span>
+            </label>
+
             <button class="form__button" type="submit">Save</button>
           </form>
         </div>
@@ -53,10 +62,18 @@
           <button class="modal__button modal__add-button" type="button" aria-label="modal button">
             <img class="modal__button-icon" src="./images/CloseIcon.svg" alt="Close Icon">
           </button>
-          <form action="#" class="form form_type_card" method="POST" name="form">
+          <form action="#" class="form form_type_card" method="POST" name="form" novalidate>
             <h2 class="form__heading">New place</h2>
-            <input type="text" placeholder="Title" class="form__input form__input_type_card-title" name="title">
-            <input type="url" placeholder="Image link" class="form__input form__input_type_url" name="description" required>
+
+          <label for="#">
+            <input id="card-title" type="text" placeholder="Title" class="form__input form__input_type_card-title" name="title" minlength="1" maxlength="30" required>
+            <span id="card-title-error"  class="form__error"></span>
+          </label>
+
+          <label for="#">
+            <input id="card-url" type="url" placeholder="Image link" class="form__input form__input_type_url" name="description" required>
+            <span id="card-url-error" class="form__error"></span> 
+          </label>
             <button class="form__button" type="submit">Create</button>
           </form>
         </div>
@@ -85,6 +102,7 @@
       </li>
     </template>
 
+    <script src="./scripts/validation.js"></script>
     <script src="./scripts/script.js"></script>
   </body>
 </html>
