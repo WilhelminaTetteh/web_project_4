@@ -31,6 +31,8 @@ const cardContainer = document.querySelector(".grid__container");
 function toggleModalWindow(modal) {
     modal.classList.toggle("modal_open");
 }
+
+
 // Input data then Open
 function openModal() {
     titleInput.value = profileTitle.textContent;
@@ -145,3 +147,17 @@ function addCard(event) {
 newCardForm.addEventListener("submit", addCard);
 
 
+
+
+
+//close popups when  click on overlay
+
+editModal.addEventListener('click', (evt) => {
+    toggleModalWindow(editModal);
+});
+addCardModal.addEventListener('click', (evt) => {
+    toggleModalWindow(addCardModal);
+});
+imageModal.addEventListener('click', (evt) => {
+    toggleModalWindow(imageModal);
+});
