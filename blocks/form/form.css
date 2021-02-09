@@ -8,6 +8,8 @@
 @import url(./__error/_visible/form__error_visible.css);
 @import url(./__button/form__button.css);
 @import url(./__heading/form__heading.css);
+@import url(./__label/form__label.css);
+@import url(./__label/_type/form__label_type_title.css);
 
 
 

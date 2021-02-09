@@ -42,17 +42,17 @@
           <form action="#" class="form" method="POST" name="form" novalidate>
             <h2 class="form__heading">Edit profile</h2>
 
-            <label for="#">
+            <label for="#" class="form__lable">
             <input id="profile-name" type="text" placeholder="Name" class="form__input form__input_type_title" name="title" required maxlength="40" minlength="2">
             <span id="profile-name-error" class="form__error"></span>
             </label>
 
-            <label for="#">
+            <label for="#" class="form__lable">
             <input id="profile-text" type="text" placeholder="About me" class="form__input form__input_type_description" name="description" required maxlength="200" minlength="2"> 
             <span id="profile-text-error" class="form__error"></span>
             </label>
 
-            <button class="form__button" type="submit">Save</button>
+            <button class="form__button form__button_disabled" type="submit">Save</button>
           </form>
         </div>
       </div>
@@ -65,12 +65,12 @@
           <form action="#" class="form form_type_card" method="POST" name="form" novalidate>
             <h2 class="form__heading">New place</h2>
 
-          <label for="#">
+          <label for="#" class="form__lable">
             <input id="card-title" type="text" placeholder="Title" class="form__input form__input_type_card-title" name="title" minlength="1" maxlength="30" required>
             <span id="card-title-error"  class="form__error"></span>
           </label>
 
-          <label for="#">
+          <label for="#" class="form__lable">
             <input id="card-url" type="url" placeholder="Image link" class="form__input form__input_type_url" name="description" required>
             <span id="card-url-error" class="form__error"></span> 
           </label>
