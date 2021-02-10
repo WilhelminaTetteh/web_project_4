@@ -13,6 +13,7 @@
     text-align: center;
     cursor: pointer;
     transition: 1s ease-out;
+    margin-top: 48px;  
 }
 
 .form__button:hover {
@@ -25,6 +26,7 @@
         height: 46px;
         font-size: 14px;
         line-height: 17px;
+        margin-top:30px ;
        }
 }
 

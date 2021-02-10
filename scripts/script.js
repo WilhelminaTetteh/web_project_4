@@ -149,15 +149,36 @@ newCardForm.addEventListener("submit", addCard);
 
 
 
-
 //close popups when  click on overlay
 
+function closeModalOverlay(modalClose){
+    modalClose.classList.remove("modal_open");
+}
+
+
 editModal.addEventListener('click', (evt) => {
-    toggleModalWindow(editModal);
+    if(evt.target === editModal){
+        closeModalOverlay(editModal);
+    }
+    
 });
 addCardModal.addEventListener('click', (evt) => {
-    toggleModalWindow(addCardModal);
+    if(evt.target === addCardModal){
+        closeModalOverlay(addCardModal);
+    }
+    
 });
 imageModal.addEventListener('click', (evt) => {
-    toggleModalWindow(imageModal);
+    if(evt.target === imageModal){
+        closeModalOverlay(imageModal);
+    }
+    
+});
+
+document.addEventListener('keyup', (evt) => {
+    if(evt.key === 'Escape') {
+        closeModalOverlay(editModal);
+        closeModalOverlay(addCardModal);
+        closeModalOverlay(imageModal);
+    }
 });

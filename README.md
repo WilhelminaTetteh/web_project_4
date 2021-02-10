@@ -10,6 +10,7 @@ This project is built with  HTML and CSS and Some Javascript.
 HTML- was used to define the layout and structure of the website.
 CSS- used in styling.
 Javascript_ used to add some interactivity to the page ( in this case it is used to create a popup where the user can change their profile name ,add more images and it allows profile visitors to like photos by clicking on the heart )
+Forms are validated and are user friendly.
 
 It uses features like the CSS grid for positioning and Normalize CSS tool to render elements more consistently.
 
