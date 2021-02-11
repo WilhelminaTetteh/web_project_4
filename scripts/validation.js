@@ -32,6 +32,9 @@ const showErrorMessage = function (input, form, { errorClass, inputErrorClass, .
       button.disabled = true;
     }
   };
+
+   
+
   
   const enableValidation = function ({ formSelector, inputSelector, submitButtonSelector, ...rest }) {
     const forms = [...document.querySelectorAll(formSelector)];
@@ -41,11 +44,12 @@ const showErrorMessage = function (input, form, { errorClass, inputErrorClass, .
       });
       const inputs = [...form.querySelectorAll(inputSelector)];
       const button = form.querySelector(submitButtonSelector);
-  
+      
       inputs.forEach((input) => {
         input.addEventListener("input", () => {
           checkInputValidity(input, form, rest);
           toggleButtonState(inputs, button, rest);
+          
         });
       });
     });

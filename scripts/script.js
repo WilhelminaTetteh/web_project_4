@@ -154,7 +154,7 @@ function addCard(event) {
     nameInput.value = "";
     imageInput.value = "";
 
-    closePopup(addCardModal);
+    closePopup(addCardModal);     
 }
 newCardForm.addEventListener("submit", addCard);
 
