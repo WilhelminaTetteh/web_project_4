@@ -22,7 +22,7 @@ const showErrorMessage = function (input, form, { errorClass, inputErrorClass, .
   };
   
   const toggleButtonState = function (inputs, button, { inactiveButtonClass, ...rest }) {
-    const isValid = inputs.every((input) => input.validity.valid);
+    const isValid = inputs.some((input) => input.validity.valid);
   
     if (isValid) {
       button.classList.remove(inactiveButtonClass);

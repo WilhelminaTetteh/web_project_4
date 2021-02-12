@@ -36,14 +36,7 @@ function openPopup(modalOpen){
 function closePopup(modalClose){
     modalClose.classList.remove("modal_open");
 }
-// Escape Functionality
-function closeByEscape(evt){
-    if(evt.key === 'Escape') {
-        closePopup(editModal);
-        closePopup(addCardModal);
-        closePopup(imageModal);
-    }
-}
+
 
 // Input data then Open
 function openModal() {
@@ -182,14 +175,24 @@ imageModal.addEventListener('click', (evt) => {
     
 });
 
-document.addEventListener('keyup', (evt) => {
+// document.addEventListener('keyup', (evt) => {
+//     if(evt.key === 'Escape') {
+//         closePopup(editModal);
+//         closePopup(addCardModal);
+//         closePopup(imageModal);
+//     }
+// });
+
+
+// Escape Functionality
+function closeByEscape(evt){
     if(evt.key === 'Escape') {
+
         closePopup(editModal);
         closePopup(addCardModal);
         closePopup(imageModal);
     }
-});
-
+}
 
 document.addEventListener('keydown',closeByEscape);
 document.removeEventListener('keydown',closeByEscape);
