@@ -10,8 +10,6 @@
     font-size: 18px;
     line-height: 22px;
     text-align: center;
-    cursor: pointer;
+    pointer-events: none;
     background: #E5E5E5;
-    cursor: auto;
-
 }
