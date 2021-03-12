@@ -1,3 +1,28 @@
+import FormValidator from './FormValidator.js';
+import Card from './Card.js';
+
+import {popupImage,imageCaption, imageModal, openPopup, closePopup, closeByEscape} from './utils';
+
+
+
+const config =  {
+  inputSelector: ".form__input",
+  submitButtonSelector: ".form__button",
+  inactiveButtonClass: "form__button_disabled",
+  inputErrorClass: "form__input_type_error",
+  errorClass: "form__error_visible",
+}
+
+
+const editProfileFormValidator = new FormValidator(config, document.querySelector(".form"));//pass in some parameters
+const addCardFormValidator = new FormValidator(config, document.querySelector(".form_type_card"));
+
+//call enableValidation() on both forms instances
+
+editProfileFormValidator.enableValidation();
+addCardFormValidator.enableValidation();
+
+
 const initialCards = [
   {
     name: "Lago di Braies",
@@ -24,6 +49,7 @@ const initialCards = [
     link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
   },
 ];
+
 //open modal buttons
 const editButton = document.querySelector(".profile__edit");
 const addCardButton = document.querySelector(".profile__add");
@@ -32,7 +58,7 @@ const addCardButton = document.querySelector(".profile__add");
 // let modalWindow = document.querySelector(".modal");
 const editModal = document.querySelector(".modal_type_edit-profile");
 const addCardModal = document.querySelector(".modal_type_add-card");
-const imageModal = document.querySelector(".modal_type_image");
+// const imageModal = document.querySelector(".modal_type_image");
 
 //Close buttons
 const closeButton = editModal.querySelector(".modal__button");
@@ -48,30 +74,30 @@ const profileDescription = document.querySelector(".profile__description");
 
 const nameInput = document.querySelector(".form__input_type_card-title");
 const imageInput = document.querySelector(".form__input_type_url");
-const popupImage = imageModal.querySelector(".modal__image");
-const imageCaption = imageModal.querySelector(".modal__image-caption");
-// const cardTemplate = document.querySelector(".grid__template").content.querySelector(".grid__item");
-// const cardContainer = document.querySelector(".grid__container");//PLACESLIST
+// const popupImage = imageModal.querySelector(".modal__image");
+// const imageCaption = imageModal.querySelector(".modal__image-caption");
+const cardTemplate = document.querySelector(".grid__template").content.querySelector(".grid__item");
+const cardContainer = document.querySelector(".grid__container");//PLACESLIST
 
 
 // open and close Modals
-function openPopup(modalOpen) {
-  modalOpen.classList.add("modal_open");
-  document.addEventListener("keydown", closeByEscape);
-}
+// function openPopup(modalOpen) {
+//   modalOpen.classList.add("modal_open");
+//   document.addEventListener("keydown", closeByEscape);
+// }
 
-function closePopup(modalClose) {
-  modalClose.classList.remove("modal_open");
-  document.removeEventListener("keydown", closeByEscape);
-}
+// function closePopup(modalClose) {
+//   modalClose.classList.remove("modal_open");
+//   document.removeEventListener("keydown", closeByEscape);
+// }
 
 
-function closeByEscape(evt) {
-    const activeModal = document.querySelector(".modal_open");
-    if (evt.key === "Escape") {
-      closePopup(activeModal);
-    }
-  }
+// function closeByEscape(evt) {
+//     const activeModal = document.querySelector(".modal_open");
+//     if (evt.key === "Escape") {
+//       closePopup(activeModal);
+//     }
+//   }
 
 // Input data then Open
 function openModal() {
@@ -116,66 +142,20 @@ const handleDeleteIcon = (event) => {
   event.target.closest(".grid__item").remove();
 };
 
-const handleCardImagePreview = card => {
-  popupImage.src = card.link;
-  popupImage.alt = card.name;
-  imageCaption.textContent = card.name;
+const handleCardImagePreview = data => {
+  popupImage.src = data.link;
+  popupImage.alt = data.name;
+  imageCaption.textContent = data.name;
   openPopup(imageModal);
 };
 
-// SPRINT 5
-
-
-
-// function createCardElement(name, link) {
-//   const cardElement = cardTemplate.cloneNode(true);
-
-//   const cardImage = cardElement.querySelector(".grid__image");
-//   const cardText = cardElement.querySelector(".grid__text");
-//   const cardLikeIcon = cardElement.querySelector(".grid__icon");
-//   const cardDeleteIcon = cardElement.querySelector(".grid__delete-icon");
-
-//   cardText.textContent = name;
-//   cardImage.style.backgroundImage = `url(${link})`;
-
-//   cardLikeIcon.addEventListener("click", () => {
-//     cardLikeIcon.classList.toggle("grid__icon_active");
-//   });
-
-//   cardDeleteIcon.addEventListener("click", () => {
-//     cardElement.remove();
-//   });
-
-//   cardImage.addEventListener("click", () => {
-//     popupImage.src = link;
-//     popupImage.alt = name;
-//     imageCaption.textContent = name;
-//     openPopup(imageModal);
-//   });
-//   return cardElement;
-// }
-
-// initialCards.forEach((data) => {
-//   const cardElement = createCardElement(data.name, data.link);
-//   cardContainer.prepend(cardElement);
-// });
-
-// function addCard(event) {
-//   event.preventDefault();
-//   const cardElement = createCardElement(nameInput.value, `${imageInput.value}`);
-
-//   cardContainer.prepend(cardElement);
-
-//   closePopup(addCardModal);
-// }
-// newCardForm.addEventListener("submit", addCard);
 
 ////////
 //WRAPPERS
 ////////
-const cardContainer = document.querySelector(".grid__container");//PLACESLIS
 
-function createCardElement(card) {
+
+function createCardElement(data) {
   
   const cardTemplate = document.querySelector(".grid__template").content.querySelector(".grid__item");
   const cardElement = cardTemplate.cloneNode(true);
@@ -185,14 +165,14 @@ function createCardElement(card) {
   const cardLikeIcon = cardElement.querySelector(".grid__icon");
   const cardDeleteIcon = cardElement.querySelector(".grid__delete-icon");
 
-  cardText.textContent = card.name;
-  cardImage.style.backgroundImage = `url(${card.link})`;
+  cardText.textContent = data.name;
+  cardImage.style.backgroundImage = `url(${data.link})`;
 //like button
   cardLikeIcon.addEventListener("click", handleLikeIcon);
 //delete button
   cardDeleteIcon.addEventListener("click", handleDeleteIcon);
 //preview cardimage
-  cardImage.addEventListener("click", () => handleCardImagePreview(card));
+  cardImage.addEventListener("click", () => handleCardImagePreview(data));
 
   
   return cardElement;
@@ -200,13 +180,13 @@ function createCardElement(card) {
 
 // when i call renderCard, i want to call it with card element and my own wrapper(substitute for cardContainer ul): this makes it such that i can render any card in any place
 
-function renderCard(card, wrapper) {
-  // const cardElement = createCardElement(card);
-  // wrapper.append(cardElement);
-  wrapper.append(createCardElement(card));
+function renderCard(data, wrapper) {
+  const card = new Card(data, '.grid__template')
+  // wrapper.append(createCardElement(data));
+  wrapper.append(card.createCard());
 };
 
-initialCards.forEach(card => renderCard(card, cardContainer));
+initialCards.forEach(data => renderCard(data, wrapper));
  
 
 
