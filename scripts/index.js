@@ -1,7 +1,6 @@
 import FormValidator from './FormValidator.js';
 import Card from './Card.js';
-
-import {popupImage,imageCaption, imageModal, openPopup, closePopup, closeByEscape} from './utils';
+import {popupImage, imageCaption, imageModal, openPopup, closePopup, closeByEscape} from './utils.js'
 
 
 
@@ -55,7 +54,6 @@ const editButton = document.querySelector(".profile__edit");
 const addCardButton = document.querySelector(".profile__add");
 
 //Wrappers-modals
-// let modalWindow = document.querySelector(".modal");
 const editModal = document.querySelector(".modal_type_edit-profile");
 const addCardModal = document.querySelector(".modal_type_add-card");
 // const imageModal = document.querySelector(".modal_type_image");
@@ -80,16 +78,16 @@ const cardTemplate = document.querySelector(".grid__template").content.querySele
 const cardContainer = document.querySelector(".grid__container");//PLACESLIST
 
 
-// open and close Modals
+// // open and close Modals
 // function openPopup(modalOpen) {
 //   modalOpen.classList.add("modal_open");
 //   document.addEventListener("keydown", closeByEscape);
-// }
+// };
 
 // function closePopup(modalClose) {
 //   modalClose.classList.remove("modal_open");
 //   document.removeEventListener("keydown", closeByEscape);
-// }
+// };
 
 
 // function closeByEscape(evt) {
@@ -97,14 +95,14 @@ const cardContainer = document.querySelector(".grid__container");//PLACESLIST
 //     if (evt.key === "Escape") {
 //       closePopup(activeModal);
 //     }
-//   }
+// };
 
 // Input data then Open
 function openModal() {
   titleInput.value = profileTitle.textContent;
   descriptionInput.value = profileDescription.textContent;
   openPopup(editModal);
-}
+};
 editButton.addEventListener("click", openModal);
 
 //close modal
@@ -119,7 +117,7 @@ function submitProfileForm(event) {
   profileDescription.textContent = descriptionInput.value;
 
   closePopup(editModal);
-}
+};
 profileEditForm.addEventListener("submit", submitProfileForm);
 
 //NEW MODAL
@@ -155,38 +153,45 @@ const handleCardImagePreview = data => {
 ////////
 
 
+
 function createCardElement(data) {
-  
-  const cardTemplate = document.querySelector(".grid__template").content.querySelector(".grid__item");
-  const cardElement = cardTemplate.cloneNode(true);
-
-  const cardImage = cardElement.querySelector(".grid__image");
-  const cardText = cardElement.querySelector(".grid__text");
-  const cardLikeIcon = cardElement.querySelector(".grid__icon");
-  const cardDeleteIcon = cardElement.querySelector(".grid__delete-icon");
-
-  cardText.textContent = data.name;
-  cardImage.style.backgroundImage = `url(${data.link})`;
-//like button
-  cardLikeIcon.addEventListener("click", handleLikeIcon);
-//delete button
-  cardDeleteIcon.addEventListener("click", handleDeleteIcon);
-//preview cardimage
-  cardImage.addEventListener("click", () => handleCardImagePreview(data));
-
-  
-  return cardElement;
+ console.log(data);                                                         
+  const card = new Card(data, '.grid__template');             
+  const cardElement = card.createCard();
+  return cardElement
 };
 
-// when i call renderCard, i want to call it with card element and my own wrapper(substitute for cardContainer ul): this makes it such that i can render any card in any place
+// function createCardElement(data) {
+  
+//   const cardTemplate = document.querySelector(".grid__template").content.querySelector(".grid__item");
+//   const cardElement = cardTemplate.cloneNode(true);
+
+//   const cardImage = cardElement.querySelector(".grid__image");
+//   const cardText = cardElement.querySelector(".grid__text");
+//   const cardLikeIcon = cardElement.querySelector(".grid__icon");
+//   const cardDeleteIcon = cardElement.querySelector(".grid__delete-icon");
+
+//   cardText.textContent = data.name;
+//   cardImage.style.backgroundImage = `url(${data.link})`;
+// //like button
+//   cardLikeIcon.addEventListener("click", handleLikeIcon);
+// //delete button
+//   cardDeleteIcon.addEventListener("click", handleDeleteIcon);
+// //preview card image
+//   cardImage.addEventListener("click", () => handleCardImagePreview(data));
+
+  
+//   return cardElement;
+// };
+
 
 function renderCard(data, wrapper) {
-  const card = new Card(data, '.grid__template')
-  // wrapper.append(createCardElement(data));
-  wrapper.append(card.createCard());
+  wrapper.append(createCardElement(data));
+  // const card = new Card(data, '.grid__template')
+  // wrapper.append(card.createCard());
 };
 
-initialCards.forEach(data => renderCard(data, wrapper));
+initialCards.forEach(data => renderCard(data, cardContainer));
  
 
 
