@@ -1,26 +1,35 @@
-import FormValidator from './FormValidator.js';
-import Card from './Card.js';
-import {popupImage, imageCaption, imageModal, openPopup, closePopup, closeByEscape} from './utils.js'
+import FormValidator from "./FormValidator.js";
+import Card from "./Card.js";
+import {
+  popupImage,
+  imageCaption,
+  imageModal,
+  openPopup,
+  closePopup,
+  closeByEscape,
+} from "./utils.js";
 
-
-
-const config =  {
+const config = {
   inputSelector: ".form__input",
   submitButtonSelector: ".form__button",
   inactiveButtonClass: "form__button_disabled",
   inputErrorClass: "form__input_type_error",
   errorClass: "form__error_visible",
-}
+};
 
-
-const editProfileFormValidator = new FormValidator(config, document.querySelector(".form"));//pass in some parameters
-const addCardFormValidator = new FormValidator(config, document.querySelector(".form_type_card"));
+const editProfileFormValidator = new FormValidator(
+  config,
+  document.querySelector(".form")
+); //pass in some parameters
+const addCardFormValidator = new FormValidator(
+  config,
+  document.querySelector(".form_type_card")
+);
 
 //call enableValidation() on both forms instances
 
 editProfileFormValidator.enableValidation();
 addCardFormValidator.enableValidation();
-
 
 const initialCards = [
   {
@@ -66,7 +75,9 @@ const closeImageButton = imageModal.querySelector(".modal__button");
 const profileEditForm = document.querySelector(".form");
 const newCardForm = document.querySelector(".form_type_card");
 const titleInput = document.querySelector(".form__input_type_title");
-const descriptionInput = document.querySelector(".form__input_type_description");
+const descriptionInput = document.querySelector(
+  ".form__input_type_description"
+);
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 
@@ -74,9 +85,10 @@ const nameInput = document.querySelector(".form__input_type_card-title");
 const imageInput = document.querySelector(".form__input_type_url");
 // const popupImage = imageModal.querySelector(".modal__image");
 // const imageCaption = imageModal.querySelector(".modal__image-caption");
-const cardTemplate = document.querySelector(".grid__template").content.querySelector(".grid__item");
-const cardContainer = document.querySelector(".grid__container");//PLACESLIST
-
+const cardTemplate = document
+  .querySelector(".grid__template")
+  .content.querySelector(".grid__item");
+const cardContainer = document.querySelector(".grid__container"); //PLACESLIST
 
 // // open and close Modals
 // function openPopup(modalOpen) {
@@ -88,7 +100,6 @@ const cardContainer = document.querySelector(".grid__container");//PLACESLIST
 //   modalClose.classList.remove("modal_open");
 //   document.removeEventListener("keydown", closeByEscape);
 // };
-
 
 // function closeByEscape(evt) {
 //     const activeModal = document.querySelector(".modal_open");
@@ -102,7 +113,7 @@ function openModal() {
   titleInput.value = profileTitle.textContent;
   descriptionInput.value = profileDescription.textContent;
   openPopup(editModal);
-};
+}
 editButton.addEventListener("click", openModal);
 
 //close modal
@@ -117,7 +128,7 @@ function submitProfileForm(event) {
   profileDescription.textContent = descriptionInput.value;
 
   closePopup(editModal);
-};
+}
 profileEditForm.addEventListener("submit", submitProfileForm);
 
 //NEW MODAL
@@ -140,16 +151,15 @@ const handleDeleteIcon = (event) => {
   event.target.closest(".grid__item").remove();
 };
 
-const handleCardImagePreview = data => {
+const handleCardImagePreview = (data) => {
   popupImage.src = data.link;
   popupImage.alt = data.name;
   imageCaption.textContent = data.name;
   openPopup(imageModal);
 };
 
-
 // function createCardElement(data) {
-  
+
 //   const cardTemplate = document.querySelector(".grid__template").content.querySelector(".grid__item");
 //   const cardElement = cardTemplate.cloneNode(true);
 
@@ -167,39 +177,30 @@ const handleCardImagePreview = data => {
 // //preview card image
 //   cardImage.addEventListener("click", () => handleCardImagePreview(data));
 
-  
 //   return cardElement;
 // };
 
-
-
-//CREATE CARD 
-
+//CREATE CARD
 
 function createCardElement(data) {
- console.log(data);                                                         
-  const card = new Card(data, '.grid__template');             
+  console.log(data);
+  const card = new Card(data, ".grid__template");
   const cardElement = card.createCard();
-  return cardElement
-};
-
+  return cardElement;
+}
 
 //RENDER CARD
 
 function renderCard(data, wrapper) {
-
   wrapper.append(createCardElement(data));
 
   // const card = new Card(data, '.grid__template')
   // wrapper.append(card.createCard());
-};
+}
 
 //INITIAL CARDS
 
-initialCards.forEach(data => renderCard(data, cardContainer));
- 
-
-
+initialCards.forEach((data) => renderCard(data, cardContainer));
 
 const addCard = (event) => {
   event.preventDefault();
@@ -207,15 +208,13 @@ const addCard = (event) => {
   const newCardImage = imageInput.value;
   const newCard = {
     name: newCardName,
-    link: newCardImage
-  }
-  const cardElement= createCardElement(newCard);
+    link: newCardImage,
+  };
+  const cardElement = createCardElement(newCard);
   cardContainer.prepend(cardElement);
   closePopup(addCardModal);
-}
+};
 newCardForm.addEventListener("submit", addCard);
-
-
 
 //close popups when  click on overlay
 
@@ -234,5 +233,3 @@ imageModal.addEventListener("click", (evt) => {
     closePopup(imageModal);
   }
 });
-
-
