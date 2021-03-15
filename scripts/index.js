@@ -148,19 +148,6 @@ const handleCardImagePreview = data => {
 };
 
 
-////////
-//WRAPPERS
-////////
-
-
-
-function createCardElement(data) {
- console.log(data);                                                         
-  const card = new Card(data, '.grid__template');             
-  const cardElement = card.createCard();
-  return cardElement
-};
-
 // function createCardElement(data) {
   
 //   const cardTemplate = document.querySelector(".grid__template").content.querySelector(".grid__item");
@@ -185,11 +172,29 @@ function createCardElement(data) {
 // };
 
 
+
+//CREATE CARD 
+
+
+function createCardElement(data) {
+ console.log(data);                                                         
+  const card = new Card(data, '.grid__template');             
+  const cardElement = card.createCard();
+  return cardElement
+};
+
+
+//RENDER CARD
+
 function renderCard(data, wrapper) {
+
   wrapper.append(createCardElement(data));
+
   // const card = new Card(data, '.grid__template')
   // wrapper.append(card.createCard());
 };
+
+//INITIAL CARDS
 
 initialCards.forEach(data => renderCard(data, cardContainer));
  
