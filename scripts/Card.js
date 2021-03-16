@@ -20,7 +20,6 @@ class Card {
     event.target.closest(".grid__item").remove();
   }
   _handleCardImagePreview() {
-    console.log(`preview photo`);
     popupImage.src = this._data.link;
     popupImage.alt = this._data.name;
     imageCaption.textContent = this._data.name;

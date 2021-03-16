@@ -112,7 +112,6 @@ function submitProfileForm(event) {
 //CREATE CARD
 
 function createCardElement(data) {
-  console.log(data);
   const card = new Card(data, ".grid__template");
   const cardElement = card.createCard();
   return cardElement;
