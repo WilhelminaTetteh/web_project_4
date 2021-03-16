@@ -1,7 +1,7 @@
 import {
+  imageModal,
   popupImage,
   imageCaption,
-  imageModal,
   openPopup,
   closePopup,
   closeByEscape,
@@ -16,13 +16,14 @@ class Card {
   _handleLikeIcon(event) {
     event.target.classList.toggle("grid__icon_active");
   }
-  _handleDeleteIcon() {
-    this._cardElement.remove();
+  _handleDeleteIcon(event) {
+    event.target.closest(".grid__item").remove();
   }
   _handleCardImagePreview() {
-    popupImage.src = data.link;
-    popupImage.alt = data.name;
-    imageCaption.textContent = data.name;
+    console.log(`preview photo`);
+    popupImage.src = this._data.link;
+    popupImage.alt = this._data.name;
+    imageCaption.textContent = this._data.name;
     openPopup(imageModal);
   }
 
@@ -37,9 +38,8 @@ class Card {
     //delete button
     cardDeleteIcon.addEventListener("click", this._handleDeleteIcon);
     //preview card image
-    this._cardImage.addEventListener(
-      "click",
-      () => this._handleCardImagePreview
+    this._cardImage.addEventListener("click", () =>
+      this._handleCardImagePreview()
     );
   }
 
