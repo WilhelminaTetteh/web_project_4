@@ -59,18 +59,11 @@ const initialCards = [
   },
 ];
 
-// //open modal buttons
-// const editButton = document.querySelector(".profile__edit");
-// const addCardButton = document.querySelector(".profile__add");
-// // Profile inputs
-// const titleInput = document.querySelector(".form__input_type_title");
-// const descriptionInput = document.querySelector(
-//   ".form__input_type_description"
-// );
-
 // IMAGE POPUP
+ 
 const imagePreviewModal = new PopupWithImage(".modal_type_image");
 imagePreviewModal.setEventListeners();
+// INITIAL CARDS
 
 const initialCardSection = new Section(
   {
