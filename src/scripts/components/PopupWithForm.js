@@ -15,11 +15,9 @@ class PopupWithForm extends Popup {
     inputs.forEach((input) => {
       // take the value of its name attribute
       values[input.name] = input.value;
-      console.log(values);
     });
 
-    // name="place-name"
-    return values; // {card-mane ..., card-url....}
+    return values;
   }
   close() {
     super.close();
@@ -29,7 +27,6 @@ class PopupWithForm extends Popup {
     e.preventDefault();
     const submittedValues = this._getInputValues();
     this._popupSubmit(submittedValues);
-    console.log(submittedValues);
   }
 
   setEventListeners() {
