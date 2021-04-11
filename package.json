@@ -1,0 +1,27 @@
+{
+  "name": "web_project_4",
+  "version": "1.0.0",
+  "description": "**Description**",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf dist && webpack --mode production",
+    "dev": "webpack serve --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WilhelminaTetteh/web_project_4.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WilhelminaTetteh/web_project_4/issues"
+  },
+  "homepage": "https://github.com/WilhelminaTetteh/web_project_4#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^5.31.2",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}

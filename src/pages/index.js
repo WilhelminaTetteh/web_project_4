@@ -60,7 +60,7 @@ const initialCards = [
 ];
 
 // IMAGE POPUP
- 
+
 const imagePreviewModal = new PopupWithImage(".modal_type_image");
 imagePreviewModal.setEventListeners();
 // INITIAL CARDS
@@ -118,3 +118,4 @@ editButton.addEventListener("click", function () {
   descriptionInput.value = getValue.userJob;
   editProfilePopup.open();
 });
+console.log("Hello, REal World!");
