@@ -5,12 +5,12 @@ import {
   openPopup,
   closePopup,
   closeByEscape,
-} from "./utils.js";
+} from "../../scripts/utils/utils.js";
 
 class Card {
-  constructor(data, cardTemplateSelector) {
+  constructor(data, handleCardClick) {
     this._data = data;
-    this._cardTemplateSelector = cardTemplateSelector;
+    this._handleCardClick = handleCardClick;
   } //.grid__template
 
   _handleLikeIcon(event) {
@@ -37,22 +37,20 @@ class Card {
     //delete button
     cardDeleteIcon.addEventListener("click", this._handleDeleteIcon);
     //preview card image
-    this._cardImage.addEventListener("click", () =>
-      this._handleCardImagePreview()
-    );
+    this._cardImage.addEventListener("click", () => this._handleCardClick());
   }
 
   createCard() {
     const cardTemplate = document
-      .querySelector(this._cardTemplateSelector)
+      .querySelector(".grid__template")
       .content.querySelector(".grid__item");
     this._cardElement = cardTemplate.cloneNode(true);
 
     this._cardImage = this._cardElement.querySelector(".grid__image");
     this._cardText = this._cardElement.querySelector(".grid__text");
 
-    this._cardText.textContent = this._data.name;
     this._cardImage.style.backgroundImage = `url(${this._data.link})`;
+    this._cardText.textContent = this._data.name;
 
     this._setEventListeners();
 
