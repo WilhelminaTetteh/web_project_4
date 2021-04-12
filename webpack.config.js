@@ -1,4 +1,8 @@
+// webpack.config.js
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: {
@@ -9,13 +13,36 @@ module.exports = {
     filename: "main.js",
     publicPath: "",
   },
-  mode: "development", // add development mode here like this
+  mode: "development",
   devServer: {
-    contentBase: path.resolve(__dirname, "./dist"), // tell the server where to serve content from in dev mode
-    compress: true, // this will speed up file loading in development mode
-    port: 8080, // will open your site at localhost:8080 (you can use another port)
-
-    open: true, // site will open automatically in the browser after executing npm run dev
+    contentBase: path.resolve(__dirname, "./dist"),
+    compress: true,
+    port: 8080,
+    open: true,
   },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        loader: "babel-loader",
+        exclude: "/node_modules/",
+      },
+      {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+          },
+        ],
+      },
+    ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
+    }),
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin(),
+  ],
 };
-// module.exports is the syntax for export in Node.js

@@ -1,3 +1,5 @@
+
+
 import FormValidator from "../scripts/components/FormValidator.js";
 import Card from "../scripts/components/Card.js";
 import Section from "../scripts/components/Section.js";
@@ -10,6 +12,7 @@ import {
   titleInput,
   descriptionInput,
 } from "../scripts/utils/constants.js";
+
 const config = {
   inputSelector: ".form__input",
   submitButtonSelector: ".form__button",
@@ -118,4 +121,4 @@ editButton.addEventListener("click", function () {
   descriptionInput.value = getValue.userJob;
   editProfilePopup.open();
 });
-console.log("Hello, REal World!");
+console.log(`IT WORKS`);
