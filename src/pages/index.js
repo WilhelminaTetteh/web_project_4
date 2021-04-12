@@ -121,4 +121,4 @@ editButton.addEventListener("click", function () {
   descriptionInput.value = getValue.userJob;
   editProfilePopup.open();
 });
-console.log(`IT WORKS`);
+
