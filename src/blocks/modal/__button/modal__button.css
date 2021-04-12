@@ -9,7 +9,7 @@
   margin-left: 394px;
   margin-top: -68px;
   transition: 1s ease-out;
-  background: url("../../../images/CloseIcon.svg");
+  background-image: url("../../../images/CloseIcon.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
