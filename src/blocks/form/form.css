@@ -9,27 +9,24 @@
 @import url(./__button/form__button.css);
 @import url(./__button/_disabled/form__button_disabled.css);
 @import url(./__heading/form__heading.css);
-@import url(./__heading/_type/form__heading_type_avatar.css);
-@import url(./__heading/_type/form__heading_type_confirmation.css);
 @import url(./__label/form__label.css);
 @import url(./__label/_type/form__label_type_title.css);
+@import url(./__heading-avatar/form__heading-avatar.css);
+@import url(./__heading-confirmation/form__heading-confirmation.css);
 
-
-
-.form{
-    width: 358px;
-    background-color: #fff;
-    color: #000;
-    font-family: "Inter", Arial, Helvetica, sans-serif;
+.form {
+  width: 358px;
+  background-color: #fff;
+  color: #000;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
 }
 @media screen and (max-width: 958px) {
-    .form{
-        width: 300px;
-    }
+  .form {
+    width: 300px;
+  }
 }
-@media screen and (max-width: 425px){
-    .form{
-        width: 238px;
+@media screen and (max-width: 425px) {
+  .form {
+    width: 238px;
+  }
 }
-}
-
