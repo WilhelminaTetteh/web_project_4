@@ -12,6 +12,7 @@
     background-position: center;
     background-repeat: no-repeat;
     transition: 0.3s ease-out;
+    display: none;
 }
 
 .grid__delete-icon:hover {

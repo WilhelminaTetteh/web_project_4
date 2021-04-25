@@ -16,21 +16,34 @@ class PopupWithForm extends Popup {
       // take the value of its name attribute
       values[input.name] = input.value;
     });
-
     return values;
   }
+
+  startSaving() {
+    const saveButton = this._popup.querySelector(".form__button");
+    saveButton.textContent = "Saving...";
+  }
+  stopSaving() {
+    const saveButton = this._popup.querySelector(".form__button");
+    saveButton.textContent = "Save";
+  }
+
   close() {
     super.close();
+    this.stopSaving();
+
     this._form.reset();
   }
   _submitHandler(e) {
     e.preventDefault();
     const submittedValues = this._getInputValues();
     this._popupSubmit(submittedValues);
+    this.startSaving();
   }
 
   setEventListeners() {
     super.setEventListeners();
+
     this._form = this._popup.querySelector(".form");
     this._form.addEventListener("submit", this._submitHandler);
   }

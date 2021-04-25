@@ -9,6 +9,8 @@
 @import url(./__button/form__button.css);
 @import url(./__button/_disabled/form__button_disabled.css);
 @import url(./__heading/form__heading.css);
+@import url(./__heading/_type/form__heading_type_avatar.css);
+@import url(./__heading/_type/form__heading_type_confirmation.css);
 @import url(./__label/form__label.css);
 @import url(./__label/_type/form__label_type_title.css);
 

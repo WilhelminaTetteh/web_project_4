@@ -1,0 +1,10 @@
+@import url(./__icon/avatar__icon.css);
+@import url(./__link/avatar__link.css);
+@import url(./__overlay/avatar__overlay.css);
+
+.avatar {
+  position: relative;
+  max-width: 120px;
+  min-height: 120px;
+  border-radius: 50%;
+}

@@ -1,8 +1,8 @@
 .grid__caption {
-    display: flex;
-    width: 246px;
-    height: 23px;
-    align-items: flex-end;
-    justify-content: space-between;
-    margin: 31px 15px 0 21px;
+  display: flex;
+  width: 246px;
+  height: 23px;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin: 37px 15px 0 21px;
 }

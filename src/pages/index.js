@@ -5,13 +5,20 @@ import Card from "../scripts/components/Card.js";
 import Section from "../scripts/components/Section.js";
 import UserInfo from "../scripts/components/UserInfo.js";
 import PopupWithForm from "../scripts/components/PopupWithForm.js";
+import PopupAlert from "../scripts/components/PopupAlert.js";
 import PopupWithImage from "../scripts/components/PopupWithImage.js";
+import Api from "../scripts/components/Api.js";
 import {
+  initialCards,
   editButton,
   addCardButton,
   titleInput,
   descriptionInput,
+  profileImage,
+  avatarOverlayIcon,
 } from "../scripts/utils/constants.js";
+//
+//
 
 const config = {
   inputSelector: ".form__input",
@@ -30,87 +37,160 @@ const addCardFormValidator = new FormValidator(
   document.querySelector(".form_type_card")
 );
 
+const avatarFormValidator = new FormValidator(
+  config,
+  document.querySelector(".form_type_avatar")
+);
+
 //call enableValidation() on both forms instances
 
 editProfileFormValidator.enableValidation();
 addCardFormValidator.enableValidation();
+avatarFormValidator.enableValidation();
 
-const initialCards = [
-  {
-    name: "Lago di Braies",
-    link: "https://code.s3.yandex.net/web-code/lago.jpg",
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://code.s3.yandex.net/web-code/vanoise.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://code.s3.yandex.net/web-code/latemar.jpg",
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
-  },
-  {
-    name: "Lake Louise",
-    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
-  },
-  {
-    name: "Yosemite Valley",
-    link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
-  },
-];
 
-// IMAGE POPUP
+let selectedCard = null;
 
-const imagePreviewModal = new PopupWithImage(".modal_type_image");
-imagePreviewModal.setEventListeners();
-// INITIAL CARDS
+const api = new Api({
+  baseUrl: "https://around.nomoreparties.co/v1/group-7",
+  authToken: "47c83c4f-319d-4409-b351-cc8f7164bc50",
+});
 
-const initialCardSection = new Section(
-  {
-    items: initialCards,
-    renderer: (data) => {
-      const newCard = new Card(data, () => {
-        imagePreviewModal.open(data.link, data.name);
-      });
-      const cardElement = newCard.createCard();
-
-      initialCardSection.addItem(cardElement);
-    },
-  },
-  ".grid__container"
-);
-initialCardSection.renderer();
-
-// ADD CARD POPUP
-
-const imageFormPopup = new PopupWithForm(".modal_type_add-card", (data) => {
-  const newCardPrepend = new Card(data, () => {
-    imagePreviewModal.open(data.link, data.name);
+// DELETE POPUP
+const deleteConfirmationPopup = new PopupAlert(".modal_type_delete", () => {
+  //
+  api.removeCard(selectedCard.getId()).then((res) => {
+    selectedCard.handleDeleteIcon(selectedCard.getId());
+    deleteConfirmationPopup.close();
   });
-  initialCardSection.prepend(newCardPrepend.createCard());
-  imageFormPopup.close();
 });
-imageFormPopup.setEventListeners();
+deleteConfirmationPopup.setEventListeners();
 
-addCardButton.addEventListener("click", function () {
-  imageFormPopup.open();
+//call above function
+api.getCardList().then((res) => {
+  // console.log(`!!!`, res);
+  const initialCardSection = new Section(
+    {
+      items: res,
+      renderer: (res) => {
+        const newCard = new Card(
+          res,
+          userInfo.getPersistedUserInfo(),
+          () => {
+            imagePreviewModal.open(res.link, res.name);
+          },
+          () => {
+            selectedCard = newCard;
+            deleteConfirmationPopup.open(); //confirmation popup
+          },
+          () => {
+            //if card is already liked
+            if (newCard.isLiked()) {
+              api.deleteLike(newCard.getId()).then((res) => {
+                newCard.updateLikeCount(res.likes.length);
+                newCard.updateLikeIconState(false);
+              });
+            } else {
+              //if card is not liked
+              api.changeLikeCardStatus(newCard.getId()).then((res) => {
+                newCard.updateLikeCount(res.likes.length);
+                newCard.updateLikeIconState(true);
+              });
+            }
+          }
+        );
+        const cardElement = newCard.createCard();
+
+        initialCardSection.addItem(cardElement);
+      },
+    },
+    ".grid__container"
+  );
+  initialCardSection.renderer();
+
+  const imageFormPopup = new PopupWithForm(".modal_type_add-card", (data) => {
+    api.addCard(data).then((res) => {
+      const newCardPrepend = new Card(
+        res,
+        userInfo.getPersistedUserInfo(),
+        () => {
+          imagePreviewModal.open(res.link, res.name);
+        },
+        () => {
+          selectedCard = newCardPrepend;
+          deleteConfirmationPopup.open(); //confirmation popup
+        },
+        () => {
+          //if new card is already liked
+          if (newCardPrepend.isLiked()) {
+            api.deleteLike(newCardPrepend.getId()).then((res) => {
+              newCardPrepend.updateLikeCount(res.likes.length);
+              newCardPrepend.updateLikeIconState(false);
+            });
+          } else {
+            //if newcard is not liked
+            api.changeLikeCardStatus(newCardPrepend.getId()).then((res) => {
+              newCardPrepend.updateLikeCount(res.likes.length);
+              newCardPrepend.updateLikeIconState(true);
+            });
+          }
+        }
+      );
+      initialCardSection.prepend(newCardPrepend.createCard());
+      imageFormPopup.close();
+    });
+  });
+
+  imageFormPopup.setEventListeners();
+
+  addCardButton.addEventListener("click", function () {
+    imageFormPopup.open();
+  });
 });
+//
 
 // USER INFO
 const userInfo = new UserInfo({
   userName: ".profile__title",
   userJob: ".profile__description",
+  avatar: ".profile__image",
 });
+//User Info
+api.getInfo().then((res) => {
+  // console.log(`profile!!`, res);
+  userInfo.setUserInfo({
+    newName: res.name,
+    newJob: res.about,
+    avatar: res.avatar,
+  });
+
+  //store user data in local-storage
+  userInfo.setPersistedUserInfo(res);
+
+});
+
+
+// IMAGE POPUP
+
+const imagePreviewModal = new PopupWithImage(".modal_type_image");
+imagePreviewModal.setEventListeners();
+
 // EDIT FORM
 const editProfilePopup = new PopupWithForm(
   ".modal_type_edit-profile",
   (values) => {
-    userInfo.setUserInfo(values.title, values.description);
-
-    editProfilePopup.close();
+    // console.log(values);
+    api
+      .updateUserInfo({ name: values.title, about: values.description })
+      .then((res) => {
+        // console.log(`profile!!`, res);
+        userInfo.setUserInfo({
+          newName: res.name,
+          newJob: res.about,
+          avatar: res.avatar,
+        });
+        editProfilePopup.close();
+      });
   }
 );
 editProfilePopup.setEventListeners();
@@ -121,4 +201,21 @@ editButton.addEventListener("click", function () {
   descriptionInput.value = getValue.userJob;
   editProfilePopup.open();
 });
+//
 
+const avatarPopup = new PopupWithForm(".modal_type_avatar", (value) => {
+  // console.log(value.link);
+  api.setUserAvatar({ avatar: value.link }).then((res) => {
+    userInfo.setUserInfo({
+      newName: res.name,
+      newJob: res.about,
+      avatar: res.avatar,
+    });
+    avatarPopup.close();
+  });
+});
+avatarPopup.setEventListeners();
+
+avatarOverlayIcon.addEventListener("click", function () {
+  avatarPopup.open();
+});

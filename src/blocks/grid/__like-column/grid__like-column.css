@@ -1,0 +1,7 @@
+.grid__like-column {
+  display: flex;
+  flex-direction: column;
+  height: 58px;
+  padding-top: 20px;
+  align-items: space-between;
+}

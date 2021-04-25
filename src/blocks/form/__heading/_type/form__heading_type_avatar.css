@@ -1,14 +1,13 @@
-.form__heading {
+.form__heading_type_avatar {
   font-family: "Inter", Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 900;
   font-size: 24px;
   line-height: 29px;
-  margin: 0 0 51px 0;
+  margin: 0;
 }
-
 @media screen and (max-width: 425px) {
-  .form__heading {
+  .form__heading_type_avatar {
     font-size: 18px;
     line-height: 22px;
     margin: 0 0 75px 0;

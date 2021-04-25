@@ -1,0 +1,22 @@
+.avatar__overlay {
+  position: absolute;
+  max-width: 120px;
+  min-height: 120px;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  transition: 1s ease;
+  z-index: 2;
+}
+.avatar__overlay:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  background-image: url("../../../images/pencil.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 26px 26px;
+}
+

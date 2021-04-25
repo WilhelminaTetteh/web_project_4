@@ -12,15 +12,19 @@
       </header>
       <main class="main">
         <section class="profile">
+          <div class="avatar">
           <img src= "<%=require('./images/jaques.jpg')%>" alt="image of a man with a red beanie" class="profile__image">
+          <div class="avatar__overlay">
+          </div>
+          </div>
           <div class="profile__info">
             <div class="profile__title-container">
-              <h1 class="profile__title">Jacques Cousteau</h1>
+              <h1 class="profile__title"></h1>
               <button class="profile__edit" type="button" aria-label="edit button">
                 <img class="profile__edit-icon" src= "<%=require('./images/pencil.svg')%>" alt="pencil icon">
               </button>
             </div>
-            <p class="profile__description">Explorer</p>
+            <p class="profile__description"></p>
           </div>
           <button class="profile__add" type="button" aria-label="add">
             <img class="profile__add-icon" src="<%=require('./images/add.svg')%>" alt="plus sign">
@@ -50,7 +54,7 @@
             <span id="profile-text-error" class="form__error"></span>
             </label>
 
-            <button class="form__button" type="submit">Save</button>
+            <button class="form__button form__button-save" type="submit">Save</button>
           </form>
         </div>
       </div>
@@ -75,7 +79,35 @@
           </form>
         </div>
       </div>
+      <!-- avatar modal -->
+      <div class="modal modal_type_avatar">
+        <div class="modal__container">
+          <button class="modal__button modal__add-button" type="button" aria-label="modal button">
+          </button>
+          <form action="#" class="form form_type_avatar" method="POST" name="form" novalidate>
+            <h2 class="form__heading_type_avatar">Change profile picture</h2>
+
+          <label for="#" class="form__lable">
+            <input id="avatar-url" type="url" placeholder="Image link" class="form__input form__input_type_url form__input_type_avatar-url" name="link" required>
+            <span id="avatar-url-error" class="form__error"></span> 
+          </label>
+            <button class="form__button"  type="submit" disabled>Save</button>
+          </form>
+        </div>
+      </div>
       
+<!-- delete modal -->
+<div class="modal modal_type_delete">
+  <div class="modal__container">
+    <button class="modal__button modal__add-button" type="button" aria-label="modal button">
+    </button>
+    <div action="#" class="form form_type_card" method="POST" name="form" novalidate>
+      <h2 class="form__heading_type_confirmation">Are you sure?</h2>
+      <button class="form__button form__delete-confirmation">Yes</button>
+    </div>
+  </div>
+</div>
+
 
       <div class="modal modal_type_image">
         <button class="modal__button modal__button_type_popup-image" type="button" aria-label="modal button">
@@ -93,7 +125,10 @@
         <div class="grid__image" style=""></div>
         <div class="grid__caption">
           <p class="grid__text"></p>
-          <button class="grid__icon" aria-label="grid icon" type="button"></button>
+          <div class="grid__like-column">
+            <button class="grid__icon" aria-label="grid icon" type="button"></button>
+          <p class="grid__likes">1</p>
+          </div>
         </div>
       </li>
     </template>
