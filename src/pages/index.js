@@ -69,9 +69,8 @@ const deleteConfirmationPopup = new PopupAlert(".modal_type_delete", () => {
     });
 });
 deleteConfirmationPopup.setEventListeners();
-
-
-function makeCard({res}) {
+// FUNCTION FOR MAKING CARDS
+function makeCard({ res }) {
   const card = new Card(
     res,
     userInfo.getPersistedUserInfo(),
@@ -112,26 +111,29 @@ function makeCard({res}) {
   return card;
 }
 
+// Promise.all  ..an  array
+api
+  .getInitialData()
+  .then((values) => {
+    const info = values[0];
+    const cards = values[1];
 
+    userInfo.setUserInfo({
+      newName: info.name,
+      newJob: info.about,
+      avatar: info.avatar,
+    });
 
-api.getInitialData().then((values) => {
+    //store user data in local-storage
+    userInfo.setPersistedUserInfo(info);
 
-  const info = values[0];
-  const cards = values[1];
+    initializeCards(cards);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
-   userInfo.setUserInfo({
-     newName: info.name,
-     newJob: info.about,
-     avatar: info.avatar,
-   });
-
-   //store user data in local-storage
-   userInfo.setPersistedUserInfo(info);
-
-  initializeCards(cards);
- })
-
-//call above function
+// Put Section in a function so i can call it in Promise.all
 function initializeCards(res) {
   const initialCardSection = new Section(
     {
@@ -148,11 +150,16 @@ function initializeCards(res) {
   initialCardSection.renderer();
 
   const imageFormPopup = new PopupWithForm(".modal_type_add-card", (data) => {
-    api.addCard(data).then((res) => {
-      const newCardPrepend = makeCard({ res: res });
-      initialCardSection.prepend(newCardPrepend.createCard());
-      imageFormPopup.close();
-    });
+    api
+      .addCard(data)
+      .then((res) => {
+        const newCardPrepend = makeCard({ res: res });
+        initialCardSection.prepend(newCardPrepend.createCard());
+        imageFormPopup.close();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   });
 
   imageFormPopup.setEventListeners();
@@ -169,7 +176,6 @@ const userInfo = new UserInfo({
   userJob: ".profile__description",
   avatar: ".profile__image",
 });
-
 
 const imagePreviewModal = new PopupWithImage(".modal_type_image");
 imagePreviewModal.setEventListeners();
@@ -207,18 +213,19 @@ editButton.addEventListener("click", function () {
 
 const avatarPopup = new PopupWithForm(".modal_type_avatar", (value) => {
   // console.log(value.link);
-  api.setUserAvatar({ avatar: value.link })
+  api
+    .setUserAvatar({ avatar: value.link })
     .then((res) => {
-    userInfo.setUserInfo({
-      newName: res.name,
-      newJob: res.about,
-      avatar: res.avatar,
-    });
-    avatarPopup.close();
+      userInfo.setUserInfo({
+        newName: res.name,
+        newJob: res.about,
+        avatar: res.avatar,
+      });
+      avatarPopup.close();
     })
     .catch((err) => {
-        console.log(err);
-      });
+      console.log(err);
+    });
 });
 avatarPopup.setEventListeners();
 

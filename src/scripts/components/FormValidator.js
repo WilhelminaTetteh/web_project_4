@@ -45,6 +45,18 @@ class FormValidator{
      const inputs = Array.from(this._form.querySelectorAll(this._settings.inputSelector));
     const button = this._form.querySelector(this._settings.submitButtonSelector);
 
+
+    
+    this._form.addEventListener('reset', () => {
+      inputs.forEach((input) => {
+        this._hideErrorMessage(input); // clear the errors 
+      });
+      button.disabled = true; //disable the button 
+    }
+  );
+
+
+
     inputs.forEach(input => {
       input.addEventListener('input', e => {
 
