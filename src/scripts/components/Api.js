@@ -20,11 +20,7 @@ class Api {
       headers: {
         authorization: this._authToken,
       },
-    })
-      .then(apiResponse)
-      .catch((err) => {
-        console.log(err);
-      });
+    }).then(apiResponse);
   }
 
   // GET https://around.nomoreparties.co/v1/groupId/users/me
@@ -33,14 +29,15 @@ class Api {
       headers: {
         authorization: this._authToken,
       },
-    })
-      .then(apiResponse)
-      .catch((err) => {
-        console.log(err);
-      });
+    }).then(apiResponse);
   }
 
-  // getAppInfo(){}
+  // make everything show up at once
+  getInitialData() {
+    return  Promise.all([this.getInfo(),this.getCardList()])
+  }
+
+
 
   // POST https://around.nomoreparties.co/v1/groupId/cards
   addCard({ name, link }) {
@@ -54,25 +51,17 @@ class Api {
         name: name,
         link: link,
       }),
-    })
-      .then(apiResponse)
-      .catch((err) => {
-        console.log(err);
-      });
+    }).then(apiResponse);
   }
 
   // DELETE https://around.nomoreparties.co/v1/groupId/cards/cardId
   removeCard(cardID) {
-     return fetch(`${this._baseUrl}/cards/${cardID}`, {
-       method: "DELETE",
-       headers: {
-         authorization: this._authToken,
-       },
-     })
-       .then(apiResponse)
-       .catch((err) => {
-         console.log(err);
-       });
+    return fetch(`${this._baseUrl}/cards/${cardID}`, {
+      method: "DELETE",
+      headers: {
+        authorization: this._authToken,
+      },
+    }).then(apiResponse);
   }
 
   // PUT https://around.nomoreparties.co/v1/groupId/cards/likes/cardId
@@ -84,11 +73,7 @@ class Api {
       headers: {
         authorization: this._authToken,
       },
-    })
-      .then(apiResponse)
-      .catch((err) => {
-        console.log(err);
-      });
+    }).then(apiResponse);
   }
 
   changeLikeCardStatus(cardID) {
@@ -97,14 +82,8 @@ class Api {
       headers: {
         authorization: this._authToken,
       },
-    })
-      .then(apiResponse)
-      .catch((err) => {
-        console.log(err);
-      });
+    }).then(apiResponse);
   }
-  
-  
 
   // PATCH https://around.nomoreparties.co/v1/groupId/users/me
   updateUserInfo({ name, about }) {
@@ -118,29 +97,21 @@ class Api {
         name: name,
         about: about,
       }),
-    })
-      .then(apiResponse)
-      .catch((err) => {
-        console.log(err);
-      });
+    }).then(apiResponse);
   }
 
   // PATCH https://around.nomoreparties.co/v1/groupId/users/me/avatar
   setUserAvatar({ avatar }) {
-      return fetch(`${this._baseUrl}/users/me/avatar`, {
-        method: "PATCH",
-        headers: {
-          authorization: this._authToken,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          avatar: avatar,
-        }),
-      })
-        .then(apiResponse)
-        .catch((err) => {
-          console.log(err);
-        });
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
+      method: "PATCH",
+      headers: {
+        authorization: this._authToken,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        avatar: avatar,
+      }),
+    }).then(apiResponse);
   }
 }
 

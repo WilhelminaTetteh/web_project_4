@@ -1,11 +1,3 @@
-import {
-  imageModal,
-  popupImage,
-  imageCaption,
-  openPopup,
-  closePopup,
-  closeByEscape,
-} from "../../scripts/utils/utils.js";
 
 class Card {
   constructor(data, userInfo, handleCardClick, handleDeleteCardClick,handleLikeClick ) {
@@ -35,16 +27,10 @@ class Card {
     return this._isLiked;
   }
 
-  handleDeleteIcon(cardID) {
-    document.getElementById(cardID).remove();
+  handleDeleteIcon() {
+    this._cardElement.remove();
   }
-  
-  _handleCardImagePreview() {
-    popupImage.src = this._data.link;
-    popupImage.alt = this._data.name;
-    imageCaption.textContent = this._data.name;
-    openPopup(imageModal);
-  }
+
 
   _setEventListeners() {
     const cardLikeIcon = this._cardElement.querySelector(".grid__icon");
@@ -95,7 +81,7 @@ class Card {
 
 
     //Logic to check if I have liked the card
-    let  filter = this._data.likes.filter( a => a._id === this._userInfo._id);
+    const  filter = this._data.likes.filter( a => a._id === this._userInfo._id);
     if( filter.length !== 0){
       this._isLiked = true;
     }

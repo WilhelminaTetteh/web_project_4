@@ -48,7 +48,6 @@ editProfileFormValidator.enableValidation();
 addCardFormValidator.enableValidation();
 avatarFormValidator.enableValidation();
 
-
 let selectedCard = null;
 
 const api = new Api({
@@ -59,46 +58,86 @@ const api = new Api({
 // DELETE POPUP
 const deleteConfirmationPopup = new PopupAlert(".modal_type_delete", () => {
   //
-  api.removeCard(selectedCard.getId()).then((res) => {
-    selectedCard.handleDeleteIcon(selectedCard.getId());
-    deleteConfirmationPopup.close();
-  });
+  api
+    .removeCard(selectedCard.getId())
+    .then((res) => {
+      selectedCard.handleDeleteIcon(selectedCard.getId());
+      deleteConfirmationPopup.close();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 deleteConfirmationPopup.setEventListeners();
 
+
+function makeCard({res}) {
+  const card = new Card(
+    res,
+    userInfo.getPersistedUserInfo(),
+    () => {
+      imagePreviewModal.open(res.link, res.name);
+    },
+    () => {
+      selectedCard = card;
+      deleteConfirmationPopup.open(); //confirmation popup
+    },
+    () => {
+      //if card is already liked
+      if (card.isLiked()) {
+        api
+          .deleteLike(card.getId())
+          .then((res) => {
+            card.updateLikeCount(res.likes.length);
+            card.updateLikeIconState(false);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } else {
+        //if card is not liked
+        api
+          .changeLikeCardStatus(card.getId())
+          .then((res) => {
+            card.updateLikeCount(res.likes.length);
+            card.updateLikeIconState(true);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    }
+  );
+
+  return card;
+}
+
+
+
+api.getInitialData().then((values) => {
+
+  const info = values[0];
+  const cards = values[1];
+
+   userInfo.setUserInfo({
+     newName: info.name,
+     newJob: info.about,
+     avatar: info.avatar,
+   });
+
+   //store user data in local-storage
+   userInfo.setPersistedUserInfo(info);
+
+  initializeCards(cards);
+ })
+
 //call above function
-api.getCardList().then((res) => {
-  // console.log(`!!!`, res);
+function initializeCards(res) {
   const initialCardSection = new Section(
     {
       items: res,
       renderer: (res) => {
-        const newCard = new Card(
-          res,
-          userInfo.getPersistedUserInfo(),
-          () => {
-            imagePreviewModal.open(res.link, res.name);
-          },
-          () => {
-            selectedCard = newCard;
-            deleteConfirmationPopup.open(); //confirmation popup
-          },
-          () => {
-            //if card is already liked
-            if (newCard.isLiked()) {
-              api.deleteLike(newCard.getId()).then((res) => {
-                newCard.updateLikeCount(res.likes.length);
-                newCard.updateLikeIconState(false);
-              });
-            } else {
-              //if card is not liked
-              api.changeLikeCardStatus(newCard.getId()).then((res) => {
-                newCard.updateLikeCount(res.likes.length);
-                newCard.updateLikeIconState(true);
-              });
-            }
-          }
-        );
+        const newCard = makeCard({ res: res });
         const cardElement = newCard.createCard();
 
         initialCardSection.addItem(cardElement);
@@ -110,32 +149,7 @@ api.getCardList().then((res) => {
 
   const imageFormPopup = new PopupWithForm(".modal_type_add-card", (data) => {
     api.addCard(data).then((res) => {
-      const newCardPrepend = new Card(
-        res,
-        userInfo.getPersistedUserInfo(),
-        () => {
-          imagePreviewModal.open(res.link, res.name);
-        },
-        () => {
-          selectedCard = newCardPrepend;
-          deleteConfirmationPopup.open(); //confirmation popup
-        },
-        () => {
-          //if new card is already liked
-          if (newCardPrepend.isLiked()) {
-            api.deleteLike(newCardPrepend.getId()).then((res) => {
-              newCardPrepend.updateLikeCount(res.likes.length);
-              newCardPrepend.updateLikeIconState(false);
-            });
-          } else {
-            //if newcard is not liked
-            api.changeLikeCardStatus(newCardPrepend.getId()).then((res) => {
-              newCardPrepend.updateLikeCount(res.likes.length);
-              newCardPrepend.updateLikeIconState(true);
-            });
-          }
-        }
-      );
+      const newCardPrepend = makeCard({ res: res });
       initialCardSection.prepend(newCardPrepend.createCard());
       imageFormPopup.close();
     });
@@ -146,7 +160,7 @@ api.getCardList().then((res) => {
   addCardButton.addEventListener("click", function () {
     imageFormPopup.open();
   });
-});
+}
 //
 
 // USER INFO
@@ -155,22 +169,7 @@ const userInfo = new UserInfo({
   userJob: ".profile__description",
   avatar: ".profile__image",
 });
-//User Info
-api.getInfo().then((res) => {
-  // console.log(`profile!!`, res);
-  userInfo.setUserInfo({
-    newName: res.name,
-    newJob: res.about,
-    avatar: res.avatar,
-  });
 
-  //store user data in local-storage
-  userInfo.setPersistedUserInfo(res);
-
-});
-
-
-// IMAGE POPUP
 
 const imagePreviewModal = new PopupWithImage(".modal_type_image");
 imagePreviewModal.setEventListeners();
@@ -190,6 +189,9 @@ const editProfilePopup = new PopupWithForm(
           avatar: res.avatar,
         });
         editProfilePopup.close();
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }
 );
@@ -205,14 +207,18 @@ editButton.addEventListener("click", function () {
 
 const avatarPopup = new PopupWithForm(".modal_type_avatar", (value) => {
   // console.log(value.link);
-  api.setUserAvatar({ avatar: value.link }).then((res) => {
+  api.setUserAvatar({ avatar: value.link })
+    .then((res) => {
     userInfo.setUserInfo({
       newName: res.name,
       newJob: res.about,
       avatar: res.avatar,
     });
     avatarPopup.close();
-  });
+    })
+    .catch((err) => {
+        console.log(err);
+      });
 });
 avatarPopup.setEventListeners();
 
