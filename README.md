@@ -1,4 +1,4 @@
-# Project 4: Around The U.S.
+# Photo Sharing App: Around The U.S.
 
 **Description**
 
