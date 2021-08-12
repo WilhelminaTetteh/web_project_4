@@ -3,13 +3,15 @@
 **Description**
 
 This is a project is a profile page on cool places to see and cool things to do in the U.S. It features beautiful places in nature that a traveller has captured and uploaded.
+User can change Profile photo, Change Name and Description, Add new photos , have a bigger view of the image on click ,and finally delete photos that belong to the user. Oh and also like photos ...else what's the point :)
 
 **Technologies**
 
 This project is built with  HTML and CSS and Some Javascript.
 HTML- was used to define the layout and structure of the website.
 CSS- used in styling.
-Javascript_ used to add some interactivity to the page ( in this case it is used to create a popup where the user can change their profile name, avatar ,add more images and it allows profile visitors to like photos by clicking on the heart or delete a card )
+Javascript_ used to add some interactivity to the page
+
 Forms are validated and are user friendly.
 
 It uses features like the CSS grid for positioning and Normalize CSS tool to render elements more consistently.

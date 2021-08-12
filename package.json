@@ -21,7 +21,7 @@
   "dependencies": {
     "core-js": "^3.10.1",
     "glob-parent": "^6.0.1",
-    "open": "^0.0.5",
+    "open": "^8.2.1",
     "url-parse": "^1.5.3"
   },
   "devDependencies": {
@@ -37,6 +37,6 @@
     "postcss-loader": "^5.2.0",
     "webpack": "^5.31.2",
     "webpack-cli": "^4.6.0",
-    "webpack-dev-server": "^1.16.5"
+    "webpack-dev-server": "^3.11.2"
   }
 }
