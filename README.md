@@ -13,7 +13,9 @@ Javascript_ used to add some interactivity to the page ( in this case it is used
 Forms are validated and are user friendly.
 
 It uses features like the CSS grid for positioning and Normalize CSS tool to render elements more consistently.
-Refactored: Object Oriented Programming
+
+**Recent Refactoring:** 
+Object Oriented Programming
 
 Elements are displayed on popular screen sizes between:
 *320px
