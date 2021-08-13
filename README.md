@@ -2,7 +2,7 @@
 
 **Description**
 
-This is a project is a profile page on cool places to see and cool things to do in the U.S. It features beautiful places in nature that a traveller has captured and uploaded.
+This is a project is a profile page on cool places to see and cool things to do in the U.S. It features beautifulthat a traveller has captured and uploaded, You'll also spot photos from around the world.
 User can change Profile photo, Change Name and Description, Add new photos , have a bigger view of the image on click ,and finally delete photos that belong to the user. Oh and also like photos ...else what's the point :)
 
 **Technologies**
