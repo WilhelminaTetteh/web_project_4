@@ -25,7 +25,7 @@ Elements are displayed on popular screen sizes between:
 
 **Link to project**
 
- * [Link to Around The U.S.](https://wilhelminatetteh.github.io/web_project_4/)
+ * [Link to Around The U.S.](https://priceless-jepsen-2f0767.netlify.app/)
 
 
 **Figma**
