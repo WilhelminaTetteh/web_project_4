@@ -1,5 +1,9 @@
 # Photo Sharing App: Around The U.S.
 
+**Link to project**
+
+ * [Link to Around The U.S.](https://priceless-jepsen-2f0767.netlify.app/)
+
 **Description**
 
 This is a project is a profile page on cool places to see and cool things to do in the U.S. It features beautifulthat a traveller has captured and uploaded, You'll also spot photos from around the world.
@@ -23,9 +27,6 @@ Elements are displayed on popular screen sizes between:
 *320px
 *1280px
 
-**Link to project**
-
- * [Link to Around The U.S.](https://priceless-jepsen-2f0767.netlify.app/)
 
 
 **Figma**
